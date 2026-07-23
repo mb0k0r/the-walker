@@ -5,6 +5,8 @@ signal new_game_requested
 signal continue_requested
 signal lab_requested
 
+const MARKET_BACKGROUND := preload("res://assets/generated/processed/market_background_v2.png")
+
 var continue_button: Button
 var warning_label: Label
 var focus_controls: Array[Control] = []
@@ -16,30 +18,20 @@ func _ready() -> void:
 
 func build() -> void:
 	focus_controls.clear()
-	var backdrop := ColorRect.new()
-	backdrop.color = Color("#100f16")
+	var backdrop := TextureRect.new()
+	backdrop.texture = MARKET_BACKGROUND
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	backdrop.modulate = Color("#77727c")
 	add_child(backdrop)
 
-	var horizon := ColorRect.new()
-	horizon.color = Color("#24202b")
-	horizon.anchor_right = 1.0
-	horizon.anchor_top = 1.0
-	horizon.anchor_bottom = 1.0
-	horizon.offset_top = -122.0
-	backdrop.add_child(horizon)
-
-	var path := Polygon2D.new()
-	path.polygon = PackedVector2Array([Vector2(224, 360), Vector2(416, 360), Vector2(346, 202), Vector2(296, 202)])
-	path.color = Color("#514839")
-	backdrop.add_child(path)
-
-	var glow := ColorRect.new()
-	glow.color = Color("#d4b36f18")
-	glow.position = Vector2(278, 38)
-	glow.size = Vector2(84, 280)
-	backdrop.add_child(glow)
+	var shade := ColorRect.new()
+	shade.color = Color("#090a10a8")
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(shade)
 
 	var panel := PanelContainer.new()
 	panel.anchor_left = 0.5

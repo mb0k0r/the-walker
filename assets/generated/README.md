@@ -8,6 +8,7 @@ Generada con la herramienta integrada ImageGen usando `assets/concepts/market_di
 - `processed/wayfarer_sheet_v1.png`: hoja transparente 4×4; filas abajo, izquierda, derecha y arriba. Ya se utiliza provisionalmente en el juego.
 - `processed/npcs_sheet_v1.png`: hoja transparente de Neria, Mara y Apatē. ImageGen produjo siete frames por personaje, no ocho; se usa el primer frame de cada fila y se conserva como fuente para completar animaciones.
 - `processed/market_props_v1.png`: hoja transparente 6×4. Incluye letreros, espejos, provisiones, telas, cajas, barriles, lámparas, mesas y viajeros. Sus celdas son de 256×256 y varios props ya se utilizan en el graybox.
+- `processed/market_background_v2.png`: fondo 16:9 definitivo del Mercado del Umbral para el primer slice. Reemplaza el suelo y las construcciones provisionales dibujadas con formas simples; mantiene el centro transitable libre para personajes e interacciones.
 - `source/*_chroma.png`: originales con fondo magenta, conservados para futuras correcciones de borde.
 
 Las hojas transparentes fueron procesadas con `remove_chroma_key.py`, usando muestreo automático del borde, matte suave y despill. Se validó canal RGBA, esquina transparente y cobertura visible.
@@ -18,5 +19,6 @@ Las hojas transparentes fueron procesadas con `remove_chroma_key.py`, usando mue
 - Caminante: grilla 4×4, cuatro direcciones y cuatro frames por dirección sobre fondo `#ff00ff`.
 - NPC: tres filas para Neria, Mara y Apatē, reposo y gesto sobre fondo `#ff00ff`.
 - Props: grilla 6×4 con veinticuatro elementos aislados sobre fondo `#ff00ff`.
+- Fondo v2: mercado medieval de peregrinación al anochecer, cámara RPG cenital en tres cuartos, ruinas y arco al fondo, túnel sospechoso a la derecha, puestos en los extremos, centro transitable despejado, luz ambiente fría y faroles ámbar; sin personajes, texto ni interfaz.
 
 Todos los prompts exigieron pixel art nítido, escala consistente, ausencia de armas, logos, marcas de agua, etiquetas y texto incrustado.

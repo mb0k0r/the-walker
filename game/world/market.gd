@@ -5,6 +5,7 @@ signal menu_requested
 signal reset_requested
 
 const INTERACTION_DISTANCE := 48.0
+const MARKET_BACKGROUND := preload("res://assets/generated/processed/market_background_v2.png")
 const NPC_SHEET := preload("res://assets/generated/processed/npcs_sheet_v1.png")
 const PROP_SHEET := preload("res://assets/generated/processed/market_props_v1.png")
 const NPC_FRAME := Vector2(1672.0 / 7.0, 941.0 / 3.0)
@@ -32,10 +33,10 @@ var pause_buttons: Array[Button] = []
 var busy := false
 var current_interactable := &""
 var interactables := {
-	&"sign": Vector2(205, 120),
-	&"neria": Vector2(145, 202),
-	&"mara": Vector2(310, 224),
-	&"apate": Vector2(500, 164)
+	&"sign": Vector2(232, 132),
+	&"neria": Vector2(158, 204),
+	&"mara": Vector2(322, 222),
+	&"apate": Vector2(494, 172)
 }
 
 func _ready() -> void:
@@ -175,14 +176,13 @@ func build_name_labels() -> void:
 	]:
 		var label := Label.new()
 		label.text = data[0]
-		label.position = interactables[data[1]] + Vector2(-45, -70)
+		label.position = interactables[data[1]] + Vector2(-45, -74)
 		label.size = Vector2(90, 18)
 		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		label.add_theme_font_size_override("font_size", 10)
+		label.add_theme_font_size_override("font_size", 9)
 		label.add_theme_color_override("font_color", data[2])
-		label.add_theme_color_override("font_shadow_color", Color("#09080bcc"))
-		label.add_theme_constant_override("shadow_offset_x", 1)
-		label.add_theme_constant_override("shadow_offset_y", 1)
+		label.add_theme_color_override("font_outline_color", Color("#09080bf2"))
+		label.add_theme_constant_override("outline_size", 2)
 		add_child(label)
 
 func refresh_text() -> void:
@@ -453,31 +453,18 @@ func _draw() -> void:
 	var viewport_size := get_viewport_rect().size
 	var viewport_origin := -position
 	var viewport_end := viewport_origin + viewport_size
-	draw_rect(Rect2(viewport_origin, viewport_size), Color("#25222a"))
-	draw_rect(Rect2(viewport_origin.x, 66, viewport_size.x, viewport_end.y - 66), Color("#6b5a43"))
-	var first_column := floori(viewport_origin.x / 32.0) * 32
-	for x in range(first_column, ceili(viewport_end.x) + 32, 32):
-		for y in range(72, ceili(viewport_end.y) + 32, 32):
-			draw_rect(Rect2(x + ((y / 32 as int) % 2) * 7, y, 25, 18), Color("#75644d"), false, 1)
-	draw_rect(Rect2(viewport_origin.x, 66, viewport_size.x, 25), Color("#3d3940"))
-	draw_rect(Rect2(180, 66, 62, 25), Color("#806c4b"))
-	draw_polygon(PackedVector2Array([Vector2(188, 360), Vector2(246, 360), Vector2(228, 90), Vector2(196, 90)]), PackedColorArray([Color("#8d7a5c")]))
+	draw_rect(Rect2(viewport_origin, viewport_size), Color("#101218"))
+	draw_texture_rect(MARKET_BACKGROUND, Rect2(0, 0, 640, 360), false)
+	draw_background_extensions(viewport_origin, viewport_end)
+	draw_rect(Rect2(viewport_origin, viewport_size), Color("#10141d12"))
 
-	var tunnel_color := Color("#e8bb69") if GameSession.encounter.outcome_id == &"accepted_shortcut" else Color("#28222d")
-	draw_rect(Rect2(474, 69, 60, 68), Color("#3b3338"))
-	draw_circle(Vector2(504, 106), 25, tunnel_color)
-	draw_rect(Rect2(479, 106, 50, 32), tunnel_color)
-	draw_rect(Rect2(438, 123, 105, 43), Color("#574338"), true)
-	draw_rect(Rect2(445, 130, 91, 29), Color("#7b5d42"), true)
-	for mirror_x in [456, 520]:
-		draw_rect(Rect2(mirror_x, 99, 7, 28), Color("#b5c4c1"), true)
+	if GameSession.encounter.outcome_id == &"accepted_shortcut":
+		draw_soft_glow(Vector2(506, 91), Color("#f0b75b"), 42.0)
+	elif GameSession.encounter.outcome_id == &"discerned_and_warned":
+		draw_soft_glow(Vector2(206, 86), Color("#d8c48a"), 32.0)
 
 	var sign_column := 1 if GameSession.has_flag(&"flag.truthful_sign_installed") else 0
-	draw_prop(Rect2(160, 78, 90, 90), sign_column, 0)
-	draw_prop(Rect2(445, 91, 40, 40), 2, 0)
-	draw_prop(Rect2(510, 91, 40, 40), 3, 0)
-	draw_prop(Rect2(350, 268, 44, 44), 4, 0)
-	draw_prop(Rect2(396, 268, 44, 44), 5, 0)
+	draw_prop(Rect2(198, 77, 70, 70), sign_column, 0)
 
 	draw_npc(interactables[&"neria"], 0)
 	draw_npc(interactables[&"mara"], 1)
@@ -494,13 +481,56 @@ func _draw() -> void:
 		for index in crowd.size():
 			draw_traveler(crowd[index], 3 + index % 3)
 
+func draw_background_extensions(viewport_origin: Vector2, viewport_end: Vector2) -> void:
+	var source_size := MARKET_BACKGROUND.get_size()
+	if viewport_origin.x < 0.0:
+		draw_texture_rect_region(
+			MARKET_BACKGROUND,
+			Rect2(viewport_origin.x, 0, -viewport_origin.x, 360),
+			Rect2(0, 0, source_size.x * 0.08, source_size.y)
+		)
+	if viewport_end.x > 640.0:
+		draw_texture_rect_region(
+			MARKET_BACKGROUND,
+			Rect2(640, 0, viewport_end.x - 640.0, 360),
+			Rect2(source_size.x * 0.92, 0, source_size.x * 0.08, source_size.y)
+		)
+	if viewport_origin.y < 0.0:
+		draw_texture_rect_region(
+			MARKET_BACKGROUND,
+			Rect2(0, viewport_origin.y, 640, -viewport_origin.y),
+			Rect2(0, 0, source_size.x, source_size.y * 0.1)
+		)
+	if viewport_end.y > 360.0:
+		draw_texture_rect_region(
+			MARKET_BACKGROUND,
+			Rect2(0, 360, 640, viewport_end.y - 360.0),
+			Rect2(0, source_size.y * 0.88, source_size.x, source_size.y * 0.12)
+		)
+
+func draw_soft_glow(center: Vector2, color: Color, radius: float) -> void:
+	for step in range(5, 0, -1):
+		var weight := float(step) / 5.0
+		var glow := color
+		glow.a = 0.018 + (1.0 - weight) * 0.012
+		draw_circle(center, radius * weight, glow)
+
 func draw_npc(at: Vector2, row: int) -> void:
+	draw_character_shadow(at)
 	var source := Rect2(0.0, NPC_FRAME.y * row, NPC_FRAME.x, NPC_FRAME.y)
-	draw_texture_rect_region(NPC_SHEET, Rect2(at.x - 24, at.y - 52, 48, 64), source)
+	draw_texture_rect_region(NPC_SHEET, Rect2(at.x - 25, at.y - 56, 50, 68), source)
 
 func draw_prop(destination: Rect2, column: int, row: int) -> void:
 	var source := Rect2(PROP_FRAME.x * column, PROP_FRAME.y * row, PROP_FRAME.x, PROP_FRAME.y)
 	draw_texture_rect_region(PROP_SHEET, destination, source)
 
 func draw_traveler(at: Vector2, column: int) -> void:
+	draw_character_shadow(at)
 	draw_prop(Rect2(at.x - 22, at.y - 42, 44, 44), column, 3)
+
+func draw_character_shadow(at: Vector2) -> void:
+	var points := PackedVector2Array()
+	for index in range(18):
+		var angle := TAU * float(index) / 18.0
+		points.append(at + Vector2(cos(angle) * 12.0, sin(angle) * 4.0) + Vector2(0, 8))
+	draw_colored_polygon(points, Color("#0303068c"))
