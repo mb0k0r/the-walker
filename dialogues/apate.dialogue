@@ -1,0 +1,187 @@
+~ tutorial
+Narrator: Allegory tutorial [ID:APATE_TUTORIAL_ALLEGORY]
+=> END
+
+~ market_intro
+Narrator: Market introduction [ID:APATE_MARKET_INTRO_001]
+Narrator: Eastern road sign [ID:APATE_MARKET_INTRO_002]
+Narrator: Fresh black paint [ID:APATE_MARKET_INTRO_003]
+=> END
+
+~ sign
+Narrator: Original inscription [ID:APATE_SIGN_001]
+Narrator: Difficult is not impossible [ID:APATE_SIGN_002]
+=> END
+
+~ neria
+Neria: Northern gate [ID:NERIA_APATE_001]
+Neria: Eastern road is open [ID:NERIA_APATE_002]
+Neria: Painted every morning [ID:NERIA_APATE_003]
+- Who benefits? [ID:NERIA_QUESTION_001]
+	Neria: Apate sells tunnel access [ID:NERIA_APATE_004]
+	Neria: The tunnel reaches the other side [ID:NERIA_APATE_005]
+	Neria: Ask the price [ID:NERIA_APATE_006]
+- Another way? [ID:NERIA_QUESTION_002]
+	Neria: There is a tunnel [ID:NERIA_APATE_007]
+	Neria: Not every shortcut is wrong [ID:NERIA_APATE_008]
+- No time [ID:NERIA_QUESTION_003]
+	Neria: Exactly the traveler [ID:NERIA_APATE_009]
+	Neria: Haste [ID:NERIA_APATE_010]
+=> END
+
+~ mara
+Mara: My brother [ID:MARA_APATE_001]
+Mara: He reached the gate [ID:MARA_APATE_002]
+Mara: Half the provisions [ID:MARA_APATE_003]
+Mara: No one mentioned the price [ID:MARA_APATE_004]
+- Did he turn back? [ID:MARA_RESPONSE_001]
+	Mara: Yes [ID:MARA_APATE_005]
+	Mara: Returning had a price [ID:MARA_APATE_006]
+	Mara: Choosing changes meaning [ID:MARA_APATE_007]
+- He chose to continue [ID:MARA_RESPONSE_002]
+	Mara: That is what he says [ID:MARA_APATE_008]
+	Mara: He needs to call it a choice [ID:MARA_APATE_009]
+- At least he arrived [ID:MARA_RESPONSE_003]
+	Mara: Apate said the same [ID:MARA_APATE_010]
+	Mara: Arriving does not make it good [ID:MARA_APATE_011]
+=> END
+
+~ apate_opening
+Apatē: Losing daylight [ID:APATE_OPENING_001]
+Apatē: You hate the road [ID:APATE_OPENING_002]
+Apatē: Before sunset [ID:APATE_OPENING_003]
+Wayfarer: What is the price? [ID:APATE_PLAYER_COST_001]
+Apatē: One token [ID:APATE_COST_001]
+Apatē: A reasonable portion [ID:APATE_COST_002]
+Apatē: One small courtesy [ID:APATE_COST_003]
+Wayfarer: What courtesy? [ID:APATE_PLAYER_COURTESY_001]
+Apatē: Tell them it is closed [ID:APATE_COURTESY_001]
+Wayfarer: It is not closed [ID:APATE_PLAYER_OBJECTION_001]
+Apatē: Slow and unstable [ID:APATE_ARGUMENT_001]
+Apatē: Closed in every important way [ID:APATE_ARGUMENT_002]
+Wayfarer: Tell the whole truth [ID:APATE_PLAYER_FULL_TRUTH_001]
+Apatē: Details exhaust people [ID:APATE_ARGUMENT_003]
+Apatē: People need direction [ID:APATE_ARGUMENT_004]
+Apatē: I spare them deciding [ID:APATE_ARGUMENT_005]
+=> END
+
+~ clue_sign
+Wayfarer: Someone painted closed [ID:APATE_CLUE_SIGN_PLAYER]
+Apatē: Signs accept reality slowly [ID:APATE_CLUE_SIGN_RESPONSE]
+=> END
+
+~ clue_toll
+Wayfarer: The price changes [ID:APATE_CLUE_TOLL_PLAYER]
+Apatē: The traveler understands too late [ID:APATE_CLUE_TOLL_RESPONSE]
+=> END
+
+~ clue_summary
+Wayfarer: Your tunnel reaches the gate [ID:APATE_CLUES_PLAYER]
+Apatē: Severe word [ID:APATE_CLUES_RESPONSE]
+Apatē: I prefer simplifies [ID:APATE_CLUES_RESPONSE_002]
+=> END
+
+~ interpretation_a
+Apatē: Call slowness virtue [ID:APATE_INTERPRETATION_A_RESPONSE]
+Apatē: Feel superior [ID:APATE_INTERPRETATION_A_RESPONSE_002]
+=> END
+
+~ interpretation_b
+Apatē: Deception is uncomfortable truth [ID:APATE_INTERPRETATION_B_RESPONSE]
+Apatē: I did not hide the destination [ID:APATE_INTERPRETATION_B_RESPONSE_002]
+=> END
+
+~ interpretation_c
+Apatē: Results are truth [ID:APATE_INTERPRETATION_C_RESPONSE]
+Apatē: Come [ID:APATE_INTERPRETATION_C_RESPONSE_002]
+=> END
+
+~ application_a
+Wayfarer: Give me the token [ID:APATE_APPLICATION_A_PLAYER]
+Apatē: Say it confidently [ID:APATE_APPLICATION_A_RESPONSE]
+Apatē: Certainty is kindness [ID:APATE_APPLICATION_A_RESPONSE_002]
+=> END
+
+~ application_b
+Wayfarer: I will not carry your sentence [ID:APATE_APPLICATION_B_PLAYER]
+Wayfarer: We will inspect both roads [ID:APATE_APPLICATION_B_PLAYER_002]
+Apatē: Everyone will have chosen [ID:APATE_APPLICATION_B_RESPONSE]
+Wayfarer: The choice will be theirs [ID:APATE_APPLICATION_B_PLAYER_003]
+=> END
+
+~ application_c
+Wayfarer: Everyone listen [ID:APATE_APPLICATION_C_PLAYER]
+Wayfarer: Apate lies about everything [ID:APATE_APPLICATION_C_PLAYER_002]
+Apatē: About everything? [ID:APATE_APPLICATION_C_RESPONSE]
+Apatē: The tunnel reaches the gate [ID:APATE_APPLICATION_C_RESPONSE_002]
+Narrator: A traveler confirmed it [ID:APATE_APPLICATION_C_NARRATOR]
+Narrator: The market argued [ID:APATE_APPLICATION_C_NARRATOR_002]
+=> END
+
+~ outcome_discerned
+Narrator: No lightning struck [ID:APATE_OUTCOME_DISCERNED_001]
+Narrator: A false sentence was replaced [ID:APATE_OUTCOME_DISCERNED_002]
+Narrator: Both routes sign [ID:APATE_OUTCOME_DISCERNED_003]
+=> END
+
+~ outcome_accepted
+Narrator: Tunnel opened [ID:APATE_OUTCOME_ACCEPTED_001]
+Narrator: Another traveler asked [ID:APATE_OUTCOME_ACCEPTED_002]
+Narrator: Your own words [ID:APATE_OUTCOME_ACCEPTED_003]
+=> END
+
+~ outcome_incomplete
+Narrator: You refused [ID:APATE_OUTCOME_INCOMPLETE_001]
+Narrator: You could not explain [ID:APATE_OUTCOME_INCOMPLETE_002]
+Narrator: Right choice incomplete understanding [ID:APATE_OUTCOME_INCOMPLETE_003]
+=> END
+
+~ outcome_exposed
+Narrator: Your accusation filled the market [ID:APATE_OUTCOME_EXPOSED_001]
+Narrator: Hidden cost disappeared [ID:APATE_OUTCOME_EXPOSED_002]
+Narrator: One true statement [ID:APATE_OUTCOME_EXPOSED_003]
+=> END
+
+~ post_discerned
+Neria: You did not tell them what to choose [ID:NERIA_POST_DISCERNED_001]
+Neria: You returned informed choice [ID:NERIA_POST_DISCERNED_002]
+Neria: Short can be honest [ID:NERIA_POST_DISCERNED_003]
+Neria: The hidden price was the problem [ID:NERIA_POST_DISCERNED_004]
+Mara: My brother will help [ID:MARA_POST_DISCERNED_001]
+Mara: He might have chosen differently [ID:MARA_POST_DISCERNED_002]
+Apatē: Accurate signs [ID:APATE_POST_DISCERNED_001]
+Apatē: Truth can hide [ID:APATE_POST_DISCERNED_002]
+=> END
+
+~ post_accepted
+Neria: You arrived faster [ID:NERIA_POST_ACCEPTED_001]
+Neria: Your sentence arrived first [ID:NERIA_POST_ACCEPTED_002]
+Neria: Others repeat it [ID:NERIA_POST_ACCEPTED_003]
+Mara: My sister heard [ID:MARA_POST_ACCEPTED_001]
+Mara: She trusted you [ID:MARA_POST_ACCEPTED_002]
+Apatē: You see [ID:APATE_POST_ACCEPTED_001]
+Apatē: One clear sentence [ID:APATE_POST_ACCEPTED_002]
+=> END
+
+~ post_incomplete
+Neria: Right not to accept [ID:NERIA_POST_INCOMPLETE_001]
+Neria: Not deceptive because short [ID:NERIA_POST_INCOMPLETE_002]
+Neria: Another deception [ID:NERIA_POST_INCOMPLETE_003]
+Mara: Not every shortcut [ID:MARA_POST_INCOMPLETE_001]
+Mara: Name the hidden cost [ID:MARA_POST_INCOMPLETE_002]
+Apatē: Suspicion creates dependence [ID:APATE_POST_INCOMPLETE_001]
+=> END
+
+~ post_exposed
+Neria: You named the person first [ID:NERIA_POST_EXPOSED_001]
+Neria: The market defends Apate [ID:NERIA_POST_EXPOSED_002]
+Mara: Arguing about your manner [ID:MARA_POST_EXPOSED_001]
+Mara: No one inspects the tunnel [ID:MARA_POST_EXPOSED_002]
+Apatē: Noise is useful [ID:APATE_POST_EXPOSED_001]
+Apatē: Each side feels certain [ID:APATE_POST_EXPOSED_002]
+=> END
+
+~ slice_end
+Narrator: Encounter complete [ID:APATE_SLICE_END]
+=> END
+

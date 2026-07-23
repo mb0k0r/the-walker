@@ -1,0 +1,460 @@
+Sí. Esta puede ser la mecánica distintiva del juego, mucho más que elegir entre tres respuestas en una conversación.
+La clave es que los versículos no funcionen como hechizos que restan vida, sino como una representación jugable de recordar, discernir, orar y actuar conforme a lo aprendido. El jefe no pierde “HP”: pierde influencia, la mentira se debilita, la oscuridad retrocede o el Caminante logra atravesar la prueba.
+Una explicación temprana dentro del juego podría decir:
+Las confrontaciones son alegóricas. La Palabra no es un hechizo ni un arma física. Aquí, las palabras representan aquello que el Caminante recuerda, cree y decide vivir.
+
+Dos niveles de jugabilidad
+Encuentros cotidianos
+Con personas normales, las opciones no deberían ser siempre tres versículos. Podrían mezclarse:
+Hacer una pregunta y escuchar.
+Responder con palabras propias.
+Compartir un pasaje.
+Guardar silencio.
+Ayudar mediante una acción.
+Reconocer que no se sabe qué decir.
+A veces citar un versículo será correcto. Otras veces será un versículo verdadero usado en un momento inapropiado. Así se evita enseñar que la respuesta cristiana siempre consiste en citar algo inmediatamente.
+Confrontaciones principales
+Los bosses representarían pruebas espirituales, ideas distorsionadas, tentaciones o condiciones internas. Cada uno tendría una mecánica propia relacionada con su concepto.
+El boss del Valle de Sombra sería ideal para introducir la memoria progresiva de un salmo.
+Boss del Valle de Sombra
+En lugar de entrar, sacar una espada y atacar, el Caminante tiene que atravesar el valle mientras una sombra lo persigue.
+El objetivo no es matar a la sombra. El objetivo es no dejarse dominar por ella y llegar al otro lado.
+Antes del boss
+En algún momento anterior, el jugador encuentra o recibe el Salmo 23. No lo plantearía como si hubiera encontrado una página de la Biblia que antes no existía. El Caminante ya puede tener acceso a las Escrituras desde el principio.
+Lo que desbloquea es una Memoria de la Palabra o un Pasaje meditado:
+Pasaje meditado
+Salmo 23
+
+Estado:
+✓ Encontrado
+✓ Leído
+✓ Relacionado con una experiencia
+○ Practicado
+○ Memorizado
+El pasaje puede recibirse de un pastor, encontrarse marcado en una Biblia antigua, escucharse de otro peregrino o aparecer durante una experiencia relacionada.
+Después, en un refugio o fogata, el jugador puede practicarlo:
+Leer el pasaje completo.
+Ordenar sus versículos.
+Completar frases.
+Relacionar cada parte con su significado.
+Practicar bajo una presión ligera.
+Esto introduce aprendizaje real sin convertir el juego en una pantalla de trivia.
+Cómo funcionaría la pelea
+Fase 1: la voz de la sombra
+La sombra expresa una acusación o un temor:
+“Estás completamente solo. No sabes adónde vas. Este camino terminará contigo.”
+
+El jugador primero identifica qué está ocurriendo:
+¿Qué intenta producir esta voz?
+
+A. Prudencia
+B. Temor que paraliza
+C. Arrepentimiento
+Esta parte prueba discernimiento, no memoria.
+Fase 2: recordar el salmo
+Comienza la secuencia del Salmo 23.
+El primer fragmento aparece y después se muestran tres posibles continuaciones. El jugador debe elegir cuál sigue.
+“El Señor es mi pastor…”
+
+A. “…nada me faltará.”
+B. “…aunque ande en valle de sombra de muerte.”
+C. “…ciertamente el bien y la misericordia me seguirán.”
+Las tres opciones pueden ser fragmentos reales del mismo salmo, pero solamente una corresponde a la secuencia actual. Es preferible hacer esto antes que inventar versículos falsos como distractores, porque no queremos que el jugador termine memorizando una frase fabricada como si fuera bíblica.
+Cada respuesta correcta ilumina una parte del camino.
+Versículo recordado
+↓
+Se enciende una lámpara
+↓
+Se revela el siguiente tramo del valle
+↓
+La sombra pierde influencia
+Fase 3: aplicar lo recordado
+Memorizar correctamente no termina automáticamente la confrontación.
+En algún punto, otro personaje puede quedar paralizado por el miedo. El jugador debe decidir:
+¿Qué harás?
+
+A. Continuar solo antes de que la sombra alcance a ambos.
+B. Repetirle el salmo sin escuchar lo que le ocurre.
+C. Quedarte, ayudarlo a levantarse y avanzar juntos.
+El salmo da contexto para la decisión, pero el jugador todavía debe aplicarlo.
+Esto es importante porque separa:
+Recitación.
+Comprensión.
+Aplicación.
+Un jugador podría recitar el salmo perfectamente y, aun así, actuar egoístamente. En ese caso atraviesa parte del boss, pero no obtiene el desenlace más restaurador.
+El sistema de combo
+El combo puede existir, pero le daría un nombre integrado con el mundo:
+Cadencia.
+Memoria viva.
+Firmeza.
+Aliento.
+Continuidad.
+Por ejemplo:
+Cadencia ×1
+La siguiente parte del camino se ilumina.
+
+Cadencia ×2
+La sombra se vuelve más lenta.
+
+Cadencia ×3
+Se revela una pista sobre la siguiente frase.
+
+Cadencia ×4
+Se desbloquea una reflexión especial del diario.
+No multiplicaría daño, porque no existe daño tradicional. El combo representa que el Caminante está recordando el pasaje con continuidad y recuperando claridad.
+Cuando se equivoca:
+La cadencia vuelve a cero.
+La niebla se acerca.
+El jugador pierde parte de su aliento.
+Puede aparecer una pista obtenida durante la historia.
+No vuelve necesariamente al inicio.
+Así el error genera tensión, pero no transforma la memorización bíblica en un castigo frustrante.
+Las decisiones diarias pueden ayudar durante los bosses
+Esta conexión puede hacer que el juego tenga mucha más profundidad.
+Supongamos que antes del valle el jugador encontró a un anciano que estaba preocupado. Si el Caminante se detuvo a escucharlo, el anciano después le enseñó cómo recordar la primera frase del salmo.
+Durante el boss:
+La voz del anciano vuelve a tu memoria:
+
+“No intentes recordar todo de una vez.
+Empieza por quién es el Pastor.”
+Eso puede eliminar una opción incorrecta.
+Si el jugador ignoró al anciano, todavía puede completar el boss, pero no recibe esa ayuda.
+De esa manera:
+La forma en que vives durante los encuentros cotidianos determina los recursos interiores y comunitarios que tendrás durante las grandes pruebas.
+
+Eso es mucho más interesante que obtener solamente experiencia o mejores estadísticas.
+La Biblia no debería funcionar como un mazo de cartas
+Podemos tomar elementos de un sistema de equipamiento, pero sin presentarlo necesariamente como cartas coleccionables.
+Antes de entrar en una zona peligrosa, el jugador selecciona algunos Pasajes meditados o Anclas:
+Pasajes preparados
+
+1. Salmo 23 — Confianza durante el temor
+2. Proverbios 18:13 — Escuchar antes de responder
+3. Mateo 6:1–4 — Motivaciones y aprobación
+No significa que los demás pasajes desaparezcan de la Biblia. Significa que estos son los que el Caminante ha estado practicando y puede recordar rápidamente bajo presión.
+Podrían existir cinco niveles sencillos:
+Descubierto
+Leído
+Comprendido
+Practicado
+Memorizado
+El nivel de dominio modifica la asistencia durante el boss:
+Descubierto: muestra referencia y primera frase.
+Leído: elimina una opción incorrecta una vez.
+Comprendido: ofrece una pista semántica.
+Practicado: permite un error sin perder la cadencia.
+Memorizado: habilita un desafío opcional con menos ayudas.
+La memorización perfecta debería dar recompensas adicionales, no bloquear el progreso principal.
+El tiempo debe generar presión, no excluir jugadores
+La idea de “no tiene tiempo para abrir la Biblia” es buena narrativamente, pero un temporizador obligatorio puede convertirse en una barrera.
+Usaría tres modos:
+Historia
+Sin límite de tiempo. El ambiente continúa moviéndose, pero la selección espera.
+Peregrino
+La sombra avanza lentamente mientras el jugador decide. No produce un fracaso inmediato; reduce espacio y ayudas.
+Memoria
+Modo opcional con presión alta, menos pistas y mayor recompensa de códice o diario.
+La dificultad no debería cambiar qué respuesta es correcta. Solo cambia cuánta ayuda existe para recordarla.
+La traducción bíblica importa para la memorización
+La interfaz del juego y la versión memorizada deben ser configuraciones independientes:
+Idioma del juego: Español
+Versión de memorización: Reina-Valera 1909
+Un jugador también podría tener:
+Idioma del juego: Español
+Versión de memorización: World English Bible
+La secuencia correcta no debería depender de comparar cadenas de texto. Internamente se utilizan segmentos ordenados:
+PSA.23.1.A
+PSA.23.1.B
+PSA.23.2.A
+PSA.23.2.B
+Y cada traducción proporciona su propio texto:
+{
+  "sequence_id": "psa_23",
+  "translation_id": "rv1909",
+  "segments": [
+    {
+      "id": "PSA.23.1.A",
+      "order": 1,
+      "text": "..."
+    },
+    {
+      "id": "PSA.23.1.B",
+      "order": 2,
+      "text": "..."
+    }
+  ]
+}
+El progreso puede guardarse por pasaje y por versión:
+{
+  "passage_mastery": {
+    "PSA.23": {
+      "rv1909": 3,
+      "web": 1
+    }
+  }
+}
+Eso evita penalizar a alguien porque recuerda una redacción diferente.
+No todos los bosses deben usar la misma mecánica
+La concatenación de versículos es ideal para ciertos salmos, pero perdería impacto si todos los bosses fueran iguales.
+Sombra o temor
+Mecánica: recitar un salmo en orden mientras se atraviesa el entorno.
+La luz revela el camino y la cadencia mantiene alejada la sombra.
+Apatē, el engaño
+Mecánica: reconstruir contexto.
+Apatē presenta frases verdaderas separadas de su contexto. El jugador debe identificar qué se omitió, relacionar el pasaje completo y descubrir la conclusión falsa.
+No se trata de recordar el siguiente versículo, sino de evitar una lectura manipulada.
+El Acusador
+Mecánica: separar hechos, culpa y condenación.
+El boss utiliza decisiones reales del jugador:
+“Fallaste a esa persona.”
+El jugador no puede simplemente responder “eso es mentira”, porque podría ser cierto. Debe distinguir entre:
+Negación.
+Confesión.
+Arrepentimiento.
+Restitución.
+Acusación sin esperanza.
+La victoria puede requerir reconocer el error y actuar, no solamente responder con una cita.
+Hypokrisis, la apariencia
+Mecánica: contradicción entre acciones públicas y privadas.
+El boss crea dos versiones del Caminante. Una recibe aprobación de todos; la otra muestra sus motivaciones reales. Para avanzar, el jugador debe elegir actos que quizá nadie vea.
+Pleonexia, la codicia
+Mecánica: renuncia y administración.
+El boss ofrece mejoras, objetos y accesos a cambio de compromisos cada vez mayores. El jugador no gana recitando más rápido, sino reconociendo cuándo algo legítimo se ha convertido en dominio.
+Esto permite que cada boss sea recordado por su propia lógica.
+Estructura técnica en Godot
+Crearía una interfaz común para bosses, pero implementaciones diferentes:
+BossEncounterController
+  ├── BossPresentation
+  ├── BossState
+  ├── BossMechanic
+  ├── ScriptureMemoryService
+  ├── ConsequenceService
+  └── BossHud
+Cada mecánica implementaría un contrato semejante:
+class_name BossMechanic
+extends RefCounted
+
+signal state_changed
+signal encounter_completed(outcome_id: StringName)
+
+func begin(context: BossContext) -> void:
+    pass
+
+func submit_action(action_id: StringName) -> void:
+    pass
+
+func get_available_actions() -> Array[StringName]:
+    return []
+
+func get_snapshot() -> Dictionary:
+    return {}
+Después existirían implementaciones:
+ScriptureChainMechanic
+ContextReconstructionMechanic
+AccusationDiscernmentMechanic
+SacrificeMechanic
+LamentMechanic
+La escena visual del boss no contiene sus reglas. Solo presenta el estado y envía las acciones del jugador.
+Datos del boss del Salmo 23
+{
+  "id": "boss.valley_of_shadow",
+  "mechanic": "scripture_chain",
+  "passage_id": "PSA.23",
+  "concept_id": "concept.shadow",
+  "meters": {
+    "player": "steadfastness",
+    "boss": "darkness"
+  },
+  "sequence": {
+    "required_segments": 8,
+    "choices_per_step": 3,
+    "soft_timer_seconds": 8,
+    "wrong_choice_effect": "increase_darkness",
+    "streak_name": "cadence"
+  },
+  "final_application": "help_frightened_companion"
+}
+Orden de implementación
+No eliminaría el vertical slice de Apatē que ya definimos. Ese slice sirve para validar:
+Movimiento.
+Interacciones.
+Conversaciones.
+Consecuencias.
+Guardado.
+Idiomas.
+Después construiría una escena separada llamada Boss Lab, accesible desde el menú de desarrollo. Así puedes probar el boss del Salmo 23 repetidamente sin tener que jugar todo el capítulo cada vez.
+Cuando la mecánica funcione, se integra narrativamente al valle.
+Prompt listo para Codex
+Este sería el siguiente prompt, después de que el slice básico de Apatē esté ejecutable:
+Usa $godot-vertical-slice, $godot-playtest-loop y $narrative-encounter.
+
+Añade al proyecto actual un segundo vertical slice enfocado en una confrontación
+alegórica tipo boss. No reemplaces ni rompas el slice de Apatē.
+
+## Objetivo
+
+Crear un Boss Lab jugable para probar la mecánica “Scripture Chain” con un boss
+provisional llamado Valley of Shadow. El jugador debe atravesar un valle
+recordando en secuencia el Salmo 23 y finalizar aplicando lo recordado en una
+decisión narrativa.
+
+Esta confrontación es una alegoría. Los versículos no producen daño ni funcionan
+como hechizos. La mecánica representa memoria, oración, discernimiento,
+perseverancia y aplicación.
+
+## Acceso
+
+Añade temporalmente al menú de desarrollo una opción:
+
+Boss Lab → Valley of Shadow
+
+Debe permitir repetir la confrontación rápidamente sin jugar el capítulo
+completo.
+
+## Sistemas nuevos
+
+Implementa, respetando AGENTS.md:
+
+- ScriptureMemoryService
+- PassageDefinition
+- PassageSequenceDefinition
+- PassageMasteryState
+- BossEncounterDefinition
+- BossEncounterController
+- BossMechanic como contrato común
+- ScriptureChainMechanic como primera implementación
+- BossHud
+- SoftPressureTimer
+- CadenceState
+
+Todo código propio debe vivir bajo res://game/.
+La lógica debe estar separada de las escenas visuales y ser testeable sin
+instanciar el mapa completo.
+
+## Pasaje
+
+Usa únicamente Salmo 23 para este prototipo.
+
+Incluye datos aislados y reemplazables para:
+
+- Reina-Valera 1909
+- World English Bible
+
+No agregues una Biblia completa. Incluye solamente los datos necesarios para
+probar este pasaje y documenta claramente su ubicación.
+
+Las elecciones incorrectas no deben ser versículos inventados. Usa segmentos
+reales del mismo pasaje colocados fuera de orden o segmentos ya mostrados.
+
+La versión de memorización debe ser independiente del idioma de interfaz.
+
+## Flujo del boss
+
+1. Introducción visual al valle.
+2. Una voz presenta una afirmación de temor.
+3. El jugador identifica entre tres opciones qué intenta producir esa voz.
+4. Comienza una secuencia de memoria.
+5. En cada paso aparece un fragmento y tres posibles continuaciones.
+6. Una respuesta correcta:
+   - avanza al jugador;
+   - ilumina una sección del camino;
+   - aumenta Cadence;
+   - reduce Darkness.
+7. Una respuesta incorrecta:
+   - no reinicia el boss;
+   - reinicia Cadence;
+   - aumenta Darkness;
+   - muestra feedback breve;
+   - continúa con una ayuda adicional.
+8. Al final aparece un compañero paralizado.
+9. El jugador elige entre tres aplicaciones.
+10. La aplicación determina el outcome final.
+11. Guarda el resultado, el mastery del pasaje y una entrada de diario.
+
+## Medidores
+
+No uses HP ni daño convencional.
+
+Usa:
+
+- Steadfastness para el jugador.
+- Darkness para la influencia del boss.
+- Cadence para respuestas consecutivas.
+
+El boss se completa cuando el jugador atraviesa el valle. No debe morir ni
+explotar.
+
+## Dificultad
+
+Implementa tres perfiles configurables:
+
+- Story: sin temporizador y con pistas.
+- Pilgrim: presión suave y tres opciones.
+- Memory: presión mayor y menos pistas.
+
+El perfil no cambia el orden correcto ni bloquea contenido narrativo principal.
+
+## Aplicación final
+
+Incluye una decisión donde un compañero queda paralizado por el miedo.
+
+Las opciones deben representar, como mínimo:
+
+- continuar solo;
+- citar el pasaje sin escuchar;
+- quedarse, escuchar y ayudarlo a avanzar.
+
+El mejor outcome no debe depender únicamente de haber logrado una secuencia
+perfecta.
+
+## Presentación provisional
+
+Usa formas, luces y shaders 2D simples creados dentro del proyecto.
+
+- La oscuridad debe avanzar visualmente.
+- Cada segmento correcto debe iluminar parte del camino.
+- Cadence debe producir feedback visible y sonoro provisional.
+- Evita buscar o descargar arte externo.
+- El resultado debe ser legible en 640×360.
+
+## Persistencia
+
+Guarda:
+
+- pasaje descubierto;
+- mastery por traducción;
+- mejor Cadence;
+- resultado del boss;
+- entrada de diario;
+- dificultad elegida.
+
+Comprueba round-trip de guardado y carga.
+
+## Tests
+
+Añade tests GUT para:
+
+- orden de segmentos;
+- cambio de traducción;
+- incremento y reinicio de Cadence;
+- efectos de una respuesta incorrecta;
+- finalización sin secuencia perfecta;
+- outcomes de aplicación;
+- persistencia del mastery;
+- validación de que no existen segmentos inventados fuera de los datos del
+  pasaje;
+- independencia entre idioma de interfaz y versión de memorización.
+
+Ejecuta:
+
+powershell -ExecutionPolicy Bypass -File .\scripts\check_project.ps1
+
+Actualiza docs/GAME_VISION.md, docs/ARCHITECTURE.md,
+docs/CONTENT_MODEL.md y docs/STATUS.md.
+
+Al terminar, indica el comando exacto para jugar, la secuencia completa de
+playtest y cualquier limitación real.
+La fórmula central quedaría:
+En el mundo cotidiano, el jugador aprende a escuchar y responder. En las grandes pruebas, aquello que leyó, practicó, recordó y vivió se convierte en la forma de atravesar la confrontación.
+
+Eso transforma la Biblia de un simple menú de coleccionables en un sistema que conecta exploración, memoria, relaciones, decisiones y progresión narrativa.

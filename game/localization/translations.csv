@@ -1,0 +1,375 @@
+﻿key,es,en
+"APATE_TUTORIAL_ALLEGORY","Las confrontaciones de este mundo son alegóricas.
+Las palabras no causan daño físico.
+Para avanzar, el Caminante debe reconocer qué está ocurriendo y decidir cómo
+actuar.","The confrontations in this world are allegorical.
+Words do not deal physical damage.
+To move forward, the Wayfarer must recognize what is happening and decide how
+to act."
+"APATE_MARKET_INTRO_001","El Mercado del Umbral tenía dos caminos y al menos tres historias diferentes
+sobre cada uno.","Threshold Market had two roads and at least three different stories about each
+one."
+"APATE_MARKET_INTRO_002","Un letrero señalaba la ruta oriental.
+Sobre la madera alguien había pintado una sola palabra:
+
+CERRADO.","A sign pointed toward the eastern road.
+Someone had painted a single word across the wood:
+
+CLOSED."
+"APATE_MARKET_INTRO_003","La pintura negra todavía estaba fresca.","The black paint was still fresh."
+"APATE_SIGN_001","Debajo de la pintura negra todavía puede leerse la inscripción original:
+
+RUTA ORIENTAL ABIERTA.
+PASO LENTO POR DESPRENDIMIENTOS.","Beneath the black paint, the original inscription can still be read:
+
+EASTERN ROAD OPEN.
+SLOW PASSAGE DUE TO FALLEN ROCK."
+"APATE_SIGN_002","La ruta no está cerrada.
+Alguien ha convertido “difícil” en “imposible”.","The road is not closed.
+Someone has turned “difficult” into “impossible”."
+"NERIA_APATE_001","¿Vienes buscando el paso hacia la puerta norte?","Are you looking for the passage to the northern gate?"
+"NERIA_APATE_002","La ruta oriental sigue abierta.
+Es lenta, empinada y poco cómoda, pero sigue abierta.","The eastern road is still open.
+It is slow, steep, and uncomfortable, but it is still open."
+"NERIA_APATE_003","Cada mañana alguien pinta “cerrado” sobre el letrero.
+Cada tarde volvemos a limpiarlo.","Every morning, someone paints “closed” across the sign.
+Every afternoon, we clean it again.
+
+PLAYER RESPONSE OPTIONS:"
+"NERIA_QUESTION_001","¿Quién gana haciendo creer que está cerrada?","Who benefits from making people believe it is closed?"
+"NERIA_QUESTION_002","¿Existe otro camino?","Is there another way?"
+"NERIA_QUESTION_003","No tengo tiempo para una ruta lenta.","I do not have time for a slow road."
+"NERIA_APATE_004","Apatē vende acceso a un túnel bajo la muralla.","Apatē sells access to a tunnel beneath the wall."
+"NERIA_APATE_005","El túnel llega al otro lado.
+Esa parte de su promesa es verdadera.","The tunnel reaches the other side.
+That part of her promise is true."
+"NERIA_APATE_006","Pero pregunta por el precio antes de entrar.
+Dentro del túnel, regresar cuesta más que continuar.","But ask about the price before entering.
+Inside the tunnel, turning back costs more than continuing."
+"NERIA_APATE_007","Existe el túnel de Apatē.","There is Apatē’s tunnel."
+"NERIA_APATE_008","No todo atajo es malo por ser corto.
+El problema comienza cuando alguien esconde su costo.","Not every shortcut is wrong because it is short.
+The problem begins when someone hides its cost."
+"NERIA_APATE_009","Entonces eres exactamente el viajero que Apatē está esperando.","Then you are exactly the traveler Apatē is waiting for."
+"NERIA_APATE_010","La prisa no demuestra que su camino sea falso.
+Pero puede impedirte hacer las preguntas correctas.","Haste does not prove that her road is false.
+But it may keep you from asking the right questions."
+"MARA_APATE_001","Mi hermano utilizó el túnel de Apatē hace tres días.","My brother used Apatē’s tunnel three days ago."
+"MARA_APATE_002","Llegó a la puerta norte.
+Apatē no mintió sobre eso.","He reached the northern gate.
+Apatē did not lie about that."
+"MARA_APATE_003","A mitad del túnel, sus ayudantes tomaron la mitad de sus provisiones como pago.","Halfway through the tunnel, her assistants took half his supplies as payment."
+"MARA_APATE_004","Nadie mencionó ese precio mientras todavía podía elegir otro camino.","No one mentioned that price while he could still choose another road.
+
+PLAYER RESPONSE OPTIONS:"
+"MARA_RESPONSE_001","¿Intentó regresar?","Did he try to turn back?"
+"MARA_RESPONSE_002","Entonces eligió continuar.","Then he chose to continue."
+"MARA_RESPONSE_003","Al menos llegó a su destino.","At least he reached his destination."
+"MARA_APATE_005","Sí.","Yes."
+"MARA_APATE_006","Le dijeron que regresar también tenía un precio.","They told him that turning back also had a price."
+"MARA_APATE_007","Cuando todas las salidas cuestan más de lo que puedes pagar,
+“elegir” deja de significar lo mismo.","When every exit costs more than you can afford,
+“choosing” no longer means the same thing."
+"MARA_APATE_008","Eso dice él.","That is what he says."
+"MARA_APATE_009","Creo que necesita llamarlo elección porque admitir que fue atrapado le resulta
+más doloroso.","I think he needs to call it a choice because admitting he was trapped hurts
+more."
+"MARA_APATE_010","Apatē también dijo eso.","Apatē said the same thing."
+"MARA_APATE_011","Llegar no convierte automáticamente en bueno todo lo que ocurrió durante el
+camino.","Arriving does not automatically make everything that happened along the way
+good."
+"APATE_OPENING_001","Un viajero con preguntas sigue siendo un viajero perdiendo la luz del día.","A traveler with questions is still a traveler losing daylight."
+"APATE_OPENING_002","Miras la ruta oriental como alguien que ya ha comenzado a odiarla.","You look at the eastern road like someone who has already begun to hate it."
+"APATE_OPENING_003","Puedo llevarte a la puerta norte antes de que el sol alcance los tejados.","I can bring you to the northern gate before the sun reaches the rooftops."
+"APATE_PLAYER_COST_001","¿Cuál es el precio?","What is the price?"
+"APATE_COST_001","Una ficha.","One token."
+"APATE_COST_002","Una parte razonable de aquello que cargas.","A reasonable portion of whatever you carry."
+"APATE_COST_003","Y una pequeña cortesía.","And one small courtesy."
+"APATE_PLAYER_COURTESY_001","¿Qué cortesía?","What courtesy?"
+"APATE_COURTESY_001","Cuando el siguiente viajero pregunte, dile que la ruta oriental está cerrada.","When the next traveler asks, tell them the eastern road is closed."
+"APATE_PLAYER_OBJECTION_001","No está cerrada.","It is not closed."
+"APATE_ARGUMENT_001","Es lenta, inestable y evitada por todos los que valoran su tiempo.","It is slow, unstable, and avoided by everyone who values their time."
+"APATE_ARGUMENT_002","Una puerta que nadie sensato desea utilizar está cerrada en todo sentido
+importante.","A door no sensible person wishes to use is closed in every way that matters."
+"APATE_PLAYER_FULL_TRUTH_001","¿Por qué no decir que existen dos caminos y explicar el costo de cada uno?","Why not say that two roads exist and explain the cost of each?"
+"APATE_ARGUMENT_003","Porque demasiados detalles cansan a las personas.","Because too many details exhaust people."
+"APATE_ARGUMENT_004","Las personas no necesitan todas las posibilidades.
+Necesitan una dirección clara.","People do not need every possibility.
+They need a clear direction."
+"APATE_ARGUMENT_005","Yo solo les evito la carga de decidir.","I merely spare them the burden of deciding."
+"APATE_CLUE_SIGN_PLAYER","Alguien pintó “cerrado” sobre un letrero que todavía dice “abierto”.","Someone painted “closed” over a sign that still says “open”."
+"APATE_CLUE_SIGN_RESPONSE","Los letreros tardan demasiado en aceptar la realidad.","Signs take too long to accept reality."
+"APATE_CLUE_TOLL_PLAYER","El precio cambia cuando el viajero ya está dentro del túnel.","The price changes after the traveler is already inside the tunnel."
+"APATE_CLUE_TOLL_RESPONSE","El precio no cambia.
+El viajero simplemente comprende su valor demasiado tarde.","The price does not change.
+The traveler merely understands its value too late."
+"APATE_CLUES_PLAYER","Tu túnel llega a la puerta.
+Pero tu promesa impide que las personas conozcan el costo mientras todavía
+pueden elegir.","Your tunnel reaches the gate.
+But your promise keeps people from knowing the cost while they can still
+choose."
+"APATE_CLUES_RESPONSE","Qué palabra tan severa: “impide”.","Such a severe word: “keeps”."
+"APATE_CLUES_RESPONSE_002","Yo prefiero “simplifica”.","I prefer “simplifies”."
+"APATE_INTERPRETATION_PROMPT","¿Qué parte de la propuesta de Apatē está distorsionada?","Which part of Apatē’s offer is distorted?"
+"APATE_INTERPRETATION_A","El atajo es incorrecto simplemente porque es más rápido.
+El camino más largo siempre es el más fiel.","The shortcut is wrong simply because it is faster.
+The longer road is always the more faithful road."
+"APATE_INTERPRETATION_A_RESPONSE","Entonces toma el camino largo y llama virtud a tu lentitud.","Then take the long road and call your slowness virtue."
+"APATE_INTERPRETATION_A_RESPONSE_002","No has comprendido mi propuesta, pero al menos has encontrado una razón para
+sentirte superior a ella.","You have not understood my offer, but at least you have found a reason to feel
+superior to it."
+"APATE_INTERPRETATION_B","El túnel puede llegar realmente a la puerta.
+El engaño está en esconder su costo y llamar “cerrado” al otro camino para que
+nadie pueda elegir con conocimiento.","The tunnel may truly reach the gate.
+The deception lies in hiding its cost and calling the other road “closed” so
+that no one can choose with full knowledge."
+"APATE_INTERPRETATION_B_RESPONSE","“Engaño” es una palabra que las personas utilizan cuando una verdad no les
+resulta cómoda.","“Deception” is a word people use when a truth makes them uncomfortable."
+"APATE_INTERPRETATION_B_RESPONSE_002","Yo no he ocultado el destino.
+Solo he evitado que el miedo a los detalles detenga el viaje.","I have not hidden the destination.
+I have only kept fear of the details from stopping the journey."
+"APATE_INTERPRETATION_C","Si el túnel funciona y nadie resulta herido inmediatamente,
+decir que la otra ruta está cerrada es una simplificación aceptable.","If the tunnel works and no one is harmed immediately,
+calling the other road closed is an acceptable simplification."
+"APATE_INTERPRETATION_C_RESPONSE","Al fin, un viajero que comprende que los resultados son la forma más limpia de
+la verdad.","At last, a traveler who understands that outcomes are the cleanest form of
+truth."
+"APATE_INTERPRETATION_C_RESPONSE_002","Ven.
+No necesitamos perder más luz.","Come.
+We need not waste any more daylight."
+"APATE_APPLICATION_PROMPT","¿Qué harás con lo que has comprendido?","What will you do with what you have understood?"
+"APATE_APPLICATION_A","Aceptar la ficha, entrar en el túnel y repetir que la ruta oriental está
+cerrada.","Take the token, enter the tunnel, and repeat that the eastern road is closed."
+"APATE_APPLICATION_A_PLAYER","Dame la ficha.
+Diré que la ruta oriental está cerrada.","Give me the token.
+I will say the eastern road is closed."
+"APATE_APPLICATION_A_RESPONSE","Dilo con seguridad.","Say it with confidence."
+"APATE_APPLICATION_A_RESPONSE_002","La certeza es una forma de bondad.
+Evita que otros pierdan tiempo pensando.","Certainty is a form of kindness.
+It keeps others from wasting time thinking."
+"APATE_APPLICATION_B","Rechazar el trato, inspeccionar ambos caminos con Neria y Mara, y publicar el
+costo real de cada uno.","Refuse the deal, inspect both roads with Neria and Mara, and publish the true
+cost of each."
+"APATE_APPLICATION_B_PLAYER","No llevaré tu frase.","I will not carry your sentence."
+"APATE_APPLICATION_B_PLAYER_002","Neria, Mara y yo revisaremos ambos caminos.
+Después colocaremos un letrero que diga qué ofrece y qué cuesta cada uno.","Neria, Mara, and I will inspect both roads.
+Then we will place a sign stating what each one offers and what each one costs."
+"APATE_APPLICATION_B_RESPONSE","Cuando terminen de medir la verdad, todos los demás ya habrán elegido.","By the time you finish measuring the truth, everyone else will have chosen."
+"APATE_APPLICATION_B_PLAYER_003","Entonces al menos la elección será suya.","Then at least the choice will be theirs."
+"APATE_APPLICATION_C","Reunir al mercado y declarar que Apatē miente sobre todo.","Gather the market and declare that Apatē lies about everything."
+"APATE_APPLICATION_C_PLAYER","¡Escuchen todos!","Everyone, listen!"
+"APATE_APPLICATION_C_PLAYER_002","Apatē miente sobre todo.
+Nada de lo que dice puede ser confiable.","Apatē lies about everything.
+Nothing she says can be trusted."
+"APATE_APPLICATION_C_RESPONSE","¿Sobre todo?","About everything?"
+"APATE_APPLICATION_C_RESPONSE_002","Entonces recordemos una sola cosa:
+mi túnel sí llega a la puerta norte.","Then let us remember one thing:
+my tunnel does reach the northern gate."
+"APATE_APPLICATION_C_NARRATOR","Un viajero que había utilizado el túnel levantó la mano para confirmarlo.","A traveler who had used the tunnel raised a hand to confirm it."
+"APATE_APPLICATION_C_NARRATOR_002","En pocos segundos, el mercado dejó de hablar sobre el costo oculto.
+Ahora todos discutían sobre tu acusación.","Within seconds, the market stopped discussing the hidden cost.
+Now everyone was arguing about your accusation."
+"APATE_OUTCOME_DISCERNED_001","No cayó ningún rayo.
+Ninguna sombra desapareció.","No lightning struck.
+No shadow vanished."
+"APATE_OUTCOME_DISCERNED_002","Una frase falsa fue sustituida por una frase verdadera.","A false sentence was replaced by a true one."
+"APATE_OUTCOME_DISCERNED_003","AMBAS RUTAS LLEGAN A LA PUERTA NORTE.
+
+RUTA ORIENTAL:
+LENTA. ABIERTA. SIN PEAJE.
+
+TÚNEL:
+RÁPIDO. PEAJE VARIABLE.
+PREGUNTE EL PRECIO ANTES DE ENTRAR.","BOTH ROADS REACH THE NORTHERN GATE.
+
+EASTERN ROAD:
+SLOW. OPEN. NO TOLL.
+
+TUNNEL:
+FAST. VARIABLE TOLL.
+ASK THE PRICE BEFORE ENTERING."
+"APATE_OUTCOME_ACCEPTED_001","El túnel se abrió inmediatamente.","The tunnel opened immediately."
+"APATE_OUTCOME_ACCEPTED_002","Detrás de ti, otro viajero preguntó por la ruta oriental.","Behind you, another traveler asked about the eastern road."
+"APATE_OUTCOME_ACCEPTED_003","Antes de que pudieras volver la mirada, alguien respondió con tus propias
+palabras:
+
+“Está cerrada.”","Before you could turn around, someone answered using your own words:
+
+“It is closed.”"
+"APATE_OUTCOME_INCOMPLETE_001","Rechazaste el trato de Apatē.","You rejected Apatē’s offer."
+"APATE_OUTCOME_INCOMPLETE_002","Pero todavía no podías explicar con claridad qué parte de su propuesta era
+engañosa.","But you still could not clearly explain which part of her offer was deceptive."
+"APATE_OUTCOME_INCOMPLETE_003","A veces una decisión correcta puede sostenerse sobre una comprensión
+incompleta.","Sometimes a right decision can rest on incomplete understanding."
+"APATE_OUTCOME_EXPOSED_001","Tu acusación llenó el mercado.","Your accusation filled the market."
+"APATE_OUTCOME_EXPOSED_002","El costo oculto desapareció debajo del ruido.","The hidden cost disappeared beneath the noise."
+"APATE_OUTCOME_EXPOSED_003","Apatē no tuvo que defender su método.
+Solo tuvo que demostrar que una de sus frases era verdadera.","Apatē did not have to defend her method.
+She only had to prove that one of her statements was true."
+"NERIA_POST_DISCERNED_001","No le dijiste al mercado qué debía elegir.","You did not tell the market what it had to choose."
+"NERIA_POST_DISCERNED_002","Le devolviste la posibilidad de elegir con conocimiento.","You returned its ability to choose with knowledge."
+"NERIA_POST_DISCERNED_003","Un camino corto puede ser honesto.
+Un camino largo también puede engañar.","A short road can be honest.
+A long road can deceive as well."
+"NERIA_POST_DISCERNED_004","El problema nunca fue la distancia.
+Fue el precio oculto y la elección manipulada.","The problem was never the distance.
+It was the hidden price and the manipulated choice."
+"MARA_POST_DISCERNED_001","Mi hermano ayudará a escribir el precio del túnel.","My brother will help write down the tunnel’s price."
+"MARA_POST_DISCERNED_002","Dijo que habría elegido de otra manera si hubiera podido ver el costo antes de
+entrar.","He said he might have chosen differently if he could have seen the cost before
+entering."
+"APATE_POST_DISCERNED_001","Los letreros exactos son vendedores terribles.","Accurate signs make terrible salesmen."
+"APATE_POST_DISCERNED_002","Pero disfruta tu pequeña victoria.
+La verdad también puede utilizarse para ocultar algo.","But enjoy your small victory.
+Truth can also be used to hide something.
+
+Esta última línea sirve para indicar que Apatē puede regresar posteriormente."
+"NERIA_POST_ACCEPTED_001","Llegaste más rápido.","You arrived faster."
+"NERIA_POST_ACCEPTED_002","Pero tu frase llegó antes que tú.","But your sentence arrived before you did."
+"NERIA_POST_ACCEPTED_003","Ahora otros repiten algo que nunca verificaste.","Now others repeat something you never verified."
+"MARA_POST_ACCEPTED_001","Mi hermana oyó que dijiste que la ruta oriental estaba cerrada.","My sister heard that you said the eastern road was closed."
+"MARA_POST_ACCEPTED_002","Confió en tu voz y se dirigió al túnel.","She trusted your voice and went toward the tunnel."
+"APATE_POST_ACCEPTED_001","¿Ves?","You see?"
+"APATE_POST_ACCEPTED_002","Una frase clara puede mover a una multitud.","One clear sentence can move a crowd."
+"NERIA_POST_INCOMPLETE_001","Hiciste bien en no aceptar un precio que no comprendías.","You did well not to accept a price you did not understand."
+"NERIA_POST_INCOMPLETE_002","Pero el túnel no es engañoso por ser corto.","But the tunnel is not deceptive because it is short."
+"NERIA_POST_INCOMPLETE_003","Si confundes dificultad con fidelidad, otro engaño podrá ofrecerte el camino más
+largo.","If you confuse difficulty with faithfulness, another deception may offer you
+the longest road."
+"MARA_POST_INCOMPLETE_001","Yo no necesitaba escuchar que todo atajo es malo.","I did not need to hear that every shortcut is wrong."
+"MARA_POST_INCOMPLETE_002","Necesitaba que alguien nombrara el costo que nos estaban ocultando.","I needed someone to name the cost that was being hidden from us."
+"APATE_POST_INCOMPLETE_001","La sospecha sin comprensión también crea dependencia.","Suspicion without understanding also creates dependence."
+"NERIA_POST_EXPOSED_001","Nombraste a la persona antes de nombrar lo que estaba haciendo.","You named the person before you named what she was doing."
+"NERIA_POST_EXPOSED_002","Ahora el mercado está defendiendo a Apatē en lugar de examinar su propuesta.","Now the market is defending Apatē instead of examining her offer."
+"MARA_POST_EXPOSED_001","Todos están discutiendo sobre tu manera de hablar.","Everyone is arguing about the way you spoke."
+"MARA_POST_EXPOSED_002","Nadie está inspeccionando el túnel.","No one is inspecting the tunnel."
+"APATE_POST_EXPOSED_001","El ruido es útil.","Noise is useful."
+"APATE_POST_EXPOSED_002","Hace que cada lado se sienta seguro mientras nadie observa los detalles.","It makes every side feel certain while no one examines the details."
+"CODEX_APATE_NAME","Apatē","Apatē"
+"CODEX_APATE_GREEK","ἀπάτη","ἀπάτη"
+"CODEX_APATE_TRANSLITERATION","apatē","apatē"
+"CODEX_APATE_GLOSS","Engaño, ilusión atractiva o seducción.","Deception, attractive illusion, or enticement."
+"CODEX_APATE_DESCRIPTION","En este encuentro, Apatē no niega todos los hechos.
+
+Su túnel realmente llega a la puerta, pero ella oculta su costo y pide convertir
+una dificultad en una falsedad.
+
+El engaño no siempre funciona inventando algo completamente falso.
+También puede seleccionar hechos verdaderos, omitir aquello que permitiría
+comprenderlos y dirigir a una persona hacia una conclusión que no habría elegido
+con toda la información.","In this encounter, Apatē does not deny every fact.
+
+Her tunnel truly reaches the gate, but she hides its cost and asks others to
+turn a difficulty into a false statement.
+
+Deception does not always work by inventing something entirely false.
+It can also select true facts, omit what would make them understandable, and
+lead someone toward a conclusion they might not have chosen with full
+information."
+"CODEX_APATE_REFLECTION","Pregunta para el Caminante:
+
+¿Estoy comunicando toda la verdad necesaria para que la otra persona pueda
+decidir, o solamente la parte que conduce al resultado que deseo?","Question for the Wayfarer:
+
+Am I communicating enough truth for the other person to choose, or only the
+part that leads toward the result I want?"
+"APATE_JOURNAL_CLUE_SIGN","Alguien pintó “cerrado” sobre una ruta que todavía está abierta.
+Debo descubrir quién se beneficia de esa afirmación.","Someone painted “closed” over a road that is still open.
+I should discover who benefits from that claim."
+"APATE_JOURNAL_DISCERNED","El túnel de Apatē llegaba realmente a la puerta.
+
+El engaño no estaba en el destino prometido, sino en el costo oculto y en
+eliminar la posibilidad de elegir con conocimiento.
+
+Ayudé a sustituir una afirmación falsa por información que todos pudieran
+examinar.","Apatē’s tunnel truly reached the gate.
+
+The deception was not in the promised destination, but in the hidden cost and
+the removal of informed choice.
+
+I helped replace a false claim with information everyone could examine."
+"APATE_JOURNAL_ACCEPTED","Acepté el camino rápido y repetí que la ruta oriental estaba cerrada.
+
+Llegué antes, pero otras personas utilizaron mis palabras como si yo hubiera
+comprobado algo que sabía que no era cierto.","I accepted the faster road and repeated that the eastern road was closed.
+
+I arrived sooner, but other people used my words as though I had confirmed
+something I knew was not true."
+"APATE_JOURNAL_INCOMPLETE","Rechacé la propuesta de Apatē, pero confundí la dificultad del camino con su
+fidelidad.
+
+Neria me recordó que un camino no es bueno por ser largo ni malo por ser corto.
+
+Debo aprender a identificar la distorsión exacta, no solamente aquello que me
+produce sospecha.","I rejected Apatē’s offer, but I confused the difficulty of a road with its
+faithfulness.
+
+Neria reminded me that a road is not good because it is long or bad because it
+is short.
+
+I must learn to identify the exact distortion, not merely what makes me
+suspicious."
+"APATE_JOURNAL_EXPOSED","Acusé públicamente a Apatē de mentir sobre todo.
+
+Como su túnel realmente llegaba a la puerta, la discusión se concentró en mi
+exageración y dejó de examinar el costo que ella ocultaba.
+
+Una acusación imprecisa puede proteger aquello que intenta exponer.","I publicly accused Apatē of lying about everything.
+
+Because her tunnel truly reached the gate, the argument focused on my
+exaggeration and stopped examining the cost she concealed.
+
+An imprecise accusation can protect the very thing it attempts to expose."
+"APATE_SLICE_END","Encuentro completado: El precio del atajo
+
+La consecuencia de esta decisión permanecerá en el camino del Caminante.","Encounter completed: The Price of the Shortcut
+
+The consequence of this decision will remain on the Wayfarer’s path.
+
+Después:
+
+- permitir abrir el diario;
+- permitir abrir la entrada `codex.apate`;
+- guardar automáticamente;
+- permitir continuar explorando;
+- ofrecer una salida clara al menú o reinicio del Boss/Encounter Lab.
+```"
+"CHARACTER_WAYFARER","Caminante","Wayfarer"
+"CHARACTER_NARRATOR","Narrador","Narrator"
+"UI_GAME_TITLE","El Caminante","The Wayfarer"
+"UI_NEW_GAME","Nueva partida","New Game"
+"UI_CONTINUE","Continuar","Continue"
+"UI_ENCOUNTER_LAB","Laboratorio de encuentros","Encounter Lab"
+"UI_SETTINGS","ConfiguraciÃ³n","Settings"
+"UI_LANGUAGE","Idioma","Language"
+"UI_SPANISH","EspaÃ±ol","Spanish"
+"UI_ENGLISH","InglÃ©s","English"
+"UI_MUSIC","MÃºsica","Music"
+"UI_SFX","Sonidos","Sound Effects"
+"UI_BACK","Volver","Back"
+"UI_QUIT_TO_MENU","Volver al menÃº","Return to Menu"
+"UI_RESET_SLICE","Reiniciar encuentro","Restart Encounter"
+"UI_ERASE_SAVE","Borrar partida","Delete Save"
+"UI_JOURNAL","Diario","Journal"
+"UI_CODEX","CÃ³dice","Codex"
+"UI_CLOSE","Cerrar","Close"
+"UI_INTERACT","[E] Interactuar","[E] Interact"
+"UI_SIGN","Letrero oriental","Eastern road sign"
+"UI_TALK_NERIA","Hablar con Neria","Talk to Neria"
+"UI_TALK_MARA","Hablar con Mara","Talk to Mara"
+"UI_TALK_APATE","Hablar con ApatÄ“","Talk to ApatÄ“"
+"UI_NOT_READY","ReÃºne al menos dos pistas antes de confrontar a ApatÄ“.","Gather at least two clues before confronting ApatÄ“."
+"UI_CLUE_FOUND","Pista aÃ±adida al diario","Clue added to journal"
+"UI_SAVED","Partida guardada","Game saved"
+"UI_EMPTY_JOURNAL","TodavÃ­a no hay entradas.","There are no entries yet."
+"UI_EMPTY_CODEX","TodavÃ­a no hay entradas.","There are no entries yet."
+"UI_ALLEGORY_ACCEPT","Comprendo","I understand"
+"UI_LOCATION_MARKET","Mercado del Umbral","Threshold Market"
+"UI_OBJECTIVE_EXPLORE","Investiga el letrero y habla con los habitantes.","Inspect the sign and speak with the townsfolk."
+"UI_OBJECTIVE_CONFRONT","Confronta la propuesta de ApatÄ“.","Confront ApatÄ“â€™s offer."
+"UI_COMPLETED","Encuentro completado","Encounter completed"
+"UI_CORRUPT_SAVE","La partida guardada no pudo leerse. Puedes comenzar una nueva.","The saved game could not be read. You can start a new one."
+"UI_PAUSED","Pausa","Paused"
+"UI_RESUME","Continuar","Resume"
+"UI_HINT_JOURNAL","J: Diario   C: CÃ³dice   Esc: Pausa","J: Journal   C: Codex   Esc: Pause"
+"UI_REFS","Referencias: Hebreos 3:13 Â· Colosenses 2:8 Â· Mateo 13:22","References: Hebrews 3:13 Â· Colossians 2:8 Â· Matthew 13:22"

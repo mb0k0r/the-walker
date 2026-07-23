@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://b8ev0e6eubben"
+path="res://.godot/imported/apate.dialogue-f4c039687eda139f101e14af5172e9cf.tres"
+
+[deps]
+
+source_file="res://dialogues/apate.dialogue"
+dest_files=["res://.godot/imported/apate.dialogue-f4c039687eda139f101e14af5172e9cf.tres"]
+
+[params]
+
+defaults=true
