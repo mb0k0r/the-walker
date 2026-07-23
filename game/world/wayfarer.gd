@@ -3,7 +3,7 @@ extends Node2D
 
 const SPEED := 96.0
 const BOUNDS := Rect2(22, 76, 596, 252)
-const SPRITE_SHEET := preload("res://assets/generated/processed/wayfarer_sheet_v1.png")
+const SPRITE_SHEET := preload("res://assets/generated/processed/wayfarer_sheet_v2.png")
 
 var input_enabled := true
 var sprite: Sprite2D
@@ -16,7 +16,7 @@ func _ready() -> void:
 	sprite.hframes = 4
 	sprite.vframes = 4
 	sprite.scale = Vector2(0.21, 0.21)
-	sprite.position = Vector2(0, -10)
+	sprite.position = Vector2(0, -21)
 	add_child(sprite)
 	queue_redraw()
 
@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		return
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	if direction.is_zero_approx():
+		walk_time = 0.0
 		sprite.frame_coords.x = 0
 	else:
 		last_direction = direction

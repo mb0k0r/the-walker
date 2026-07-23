@@ -33,10 +33,10 @@ var pause_buttons: Array[Button] = []
 var busy := false
 var current_interactable := &""
 var interactables := {
-	&"sign": Vector2(232, 132),
-	&"neria": Vector2(158, 204),
-	&"mara": Vector2(322, 222),
-	&"apate": Vector2(494, 172)
+	&"sign": Vector2(244, 140),
+	&"neria": Vector2(166, 232),
+	&"mara": Vector2(326, 226),
+	&"apate": Vector2(504, 250)
 }
 
 func _ready() -> void:
@@ -464,7 +464,7 @@ func _draw() -> void:
 		draw_soft_glow(Vector2(206, 86), Color("#d8c48a"), 32.0)
 
 	var sign_column := 1 if GameSession.has_flag(&"flag.truthful_sign_installed") else 0
-	draw_prop(Rect2(198, 77, 70, 70), sign_column, 0)
+	draw_prop(Rect2(215, 91, 58, 58), sign_column, 0)
 
 	draw_npc(interactables[&"neria"], 0)
 	draw_npc(interactables[&"mara"], 1)
