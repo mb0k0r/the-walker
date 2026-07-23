@@ -9,7 +9,7 @@ if (-not (Test-Path -LiteralPath $Godot)) {
 	throw "Godot executable not found at $Godot"
 }
 
-& powershell -ExecutionPolicy Bypass -File "$PSScriptRoot\extract_localization.ps1"
+& "$PSScriptRoot\extract_localization.ps1"
 if ($LASTEXITCODE -ne 0) {
 	exit $LASTEXITCODE
 }

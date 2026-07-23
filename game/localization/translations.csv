@@ -1,4 +1,4 @@
-﻿key,es,en
+key,es,en
 "APATE_TUTORIAL_ALLEGORY","Las confrontaciones de este mundo son alegóricas.
 Las palabras no causan daño físico.
 Para avanzar, el Caminante debe reconocer qué está ocurriendo y decidir cómo
@@ -221,9 +221,7 @@ entering."
 "APATE_POST_DISCERNED_001","Los letreros exactos son vendedores terribles.","Accurate signs make terrible salesmen."
 "APATE_POST_DISCERNED_002","Pero disfruta tu pequeña victoria.
 La verdad también puede utilizarse para ocultar algo.","But enjoy your small victory.
-Truth can also be used to hide something.
-
-Esta última línea sirve para indicar que Apatē puede regresar posteriormente."
+Truth can also be used to hide something."
 "NERIA_POST_ACCEPTED_001","Llegaste más rápido.","You arrived faster."
 "NERIA_POST_ACCEPTED_002","Pero tu frase llegó antes que tú.","But your sentence arrived before you did."
 "NERIA_POST_ACCEPTED_003","Ahora otros repiten algo que nunca verificaste.","Now others repeat something you never verified."
@@ -324,52 +322,43 @@ An imprecise accusation can protect the very thing it attempts to expose."
 
 La consecuencia de esta decisión permanecerá en el camino del Caminante.","Encounter completed: The Price of the Shortcut
 
-The consequence of this decision will remain on the Wayfarer’s path.
-
-Después:
-
-- permitir abrir el diario;
-- permitir abrir la entrada `codex.apate`;
-- guardar automáticamente;
-- permitir continuar explorando;
-- ofrecer una salida clara al menú o reinicio del Boss/Encounter Lab.
-```"
+The consequence of this decision will remain on the Wayfarer’s path."
 "CHARACTER_WAYFARER","Caminante","Wayfarer"
 "CHARACTER_NARRATOR","Narrador","Narrator"
 "UI_GAME_TITLE","El Caminante","The Wayfarer"
 "UI_NEW_GAME","Nueva partida","New Game"
 "UI_CONTINUE","Continuar","Continue"
 "UI_ENCOUNTER_LAB","Laboratorio de encuentros","Encounter Lab"
-"UI_SETTINGS","ConfiguraciÃ³n","Settings"
+"UI_SETTINGS","Configuración","Settings"
 "UI_LANGUAGE","Idioma","Language"
-"UI_SPANISH","EspaÃ±ol","Spanish"
-"UI_ENGLISH","InglÃ©s","English"
-"UI_MUSIC","MÃºsica","Music"
+"UI_SPANISH","Español","Spanish"
+"UI_ENGLISH","Inglés","English"
+"UI_MUSIC","Música","Music"
 "UI_SFX","Sonidos","Sound Effects"
 "UI_BACK","Volver","Back"
-"UI_QUIT_TO_MENU","Volver al menÃº","Return to Menu"
+"UI_QUIT_TO_MENU","Volver al menú","Return to Menu"
 "UI_RESET_SLICE","Reiniciar encuentro","Restart Encounter"
 "UI_ERASE_SAVE","Borrar partida","Delete Save"
 "UI_JOURNAL","Diario","Journal"
-"UI_CODEX","CÃ³dice","Codex"
+"UI_CODEX","Códice","Codex"
 "UI_CLOSE","Cerrar","Close"
 "UI_INTERACT","[E] Interactuar","[E] Interact"
 "UI_SIGN","Letrero oriental","Eastern road sign"
 "UI_TALK_NERIA","Hablar con Neria","Talk to Neria"
 "UI_TALK_MARA","Hablar con Mara","Talk to Mara"
-"UI_TALK_APATE","Hablar con ApatÄ“","Talk to ApatÄ“"
-"UI_NOT_READY","ReÃºne al menos dos pistas antes de confrontar a ApatÄ“.","Gather at least two clues before confronting ApatÄ“."
-"UI_CLUE_FOUND","Pista aÃ±adida al diario","Clue added to journal"
+"UI_TALK_APATE","Hablar con Apatē","Talk to Apatē"
+"UI_NOT_READY","Reúne al menos dos pistas antes de confrontar a Apatē.","Gather at least two clues before confronting Apatē."
+"UI_CLUE_FOUND","Pista añadida al diario","Clue added to journal"
 "UI_SAVED","Partida guardada","Game saved"
-"UI_EMPTY_JOURNAL","TodavÃ­a no hay entradas.","There are no entries yet."
-"UI_EMPTY_CODEX","TodavÃ­a no hay entradas.","There are no entries yet."
+"UI_EMPTY_JOURNAL","Todavía no hay entradas.","There are no entries yet."
+"UI_EMPTY_CODEX","Todavía no hay entradas.","There are no entries yet."
 "UI_ALLEGORY_ACCEPT","Comprendo","I understand"
 "UI_LOCATION_MARKET","Mercado del Umbral","Threshold Market"
 "UI_OBJECTIVE_EXPLORE","Investiga el letrero y habla con los habitantes.","Inspect the sign and speak with the townsfolk."
-"UI_OBJECTIVE_CONFRONT","Confronta la propuesta de ApatÄ“.","Confront ApatÄ“â€™s offer."
+"UI_OBJECTIVE_CONFRONT","Confronta la propuesta de Apatē.","Confront Apatē’s offer."
 "UI_COMPLETED","Encuentro completado","Encounter completed"
 "UI_CORRUPT_SAVE","La partida guardada no pudo leerse. Puedes comenzar una nueva.","The saved game could not be read. You can start a new one."
 "UI_PAUSED","Pausa","Paused"
 "UI_RESUME","Continuar","Resume"
-"UI_HINT_JOURNAL","J: Diario   C: CÃ³dice   Esc: Pausa","J: Journal   C: Codex   Esc: Pause"
-"UI_REFS","Referencias: Hebreos 3:13 Â· Colosenses 2:8 Â· Mateo 13:22","References: Hebrews 3:13 Â· Colossians 2:8 Â· Matthew 13:22"
+"UI_HINT_JOURNAL","J: Diario   C: Códice   Esc: Pausa","J: Journal   C: Codex   Esc: Pause"
+"UI_REFS","Referencias: Hebreos 3:13 · Colosenses 2:8 · Mateo 13:22","References: Hebrews 3:13 · Colossians 2:8 · Matthew 13:22"
