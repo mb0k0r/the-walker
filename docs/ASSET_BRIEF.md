@@ -1,6 +1,6 @@
 # Recursos por producir
 
-La imagen `assets/concepts/market_direction_v1.png` es una propuesta de tono, no un spritesheet listo para el juego. Se generó como concept board pixel art con mercado medieval al crepúsculo, luz ocre, sombras azul pizarra y cuatro estudios humanos: Caminante, Neria, Mara y Apatē.
+La imagen `assets/concepts/market_direction_v1.png` es la dirección de tono aprobada. La primera tanda generada y su información técnica viven en `assets/generated/`; varias piezas ya reemplazan placeholders del graybox.
 
 ## Primera tanda visual
 

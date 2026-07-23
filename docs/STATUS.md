@@ -11,10 +11,12 @@
 
 ## Provisional
 
-- Todo arte de juego es graybox dibujado por código. La lámina conceptual incluida requiere aprobación antes de producir sprites.
+- El Mercado conserva suelo, muros y túnel en graybox, pero ya utiliza el Caminante, Neria, Mara, Apatē, letreros, espejos y provisiones de la primera tanda visual aprobada.
+- El tileset generado requiere normalización manual a una grilla real de 32 px antes de reemplazar el suelo y las paredes.
+- La hoja de NPC produjo siete frames por personaje; el juego usa su primer frame mientras se completa una animación uniforme.
 - No hay música ni efectos finales; los buses y controles ya están preparados.
 - El tiempo estimado de 15–25 minutos deberá calibrarse con playtesting y contenido final.
 
 ## Siguiente hito
 
-Aprobar o corregir la propuesta visual, producir la primera tanda cerrada de tiles/personajes/props y reemplazar placeholders sin cambiar las reglas del encuentro.
+Normalizar el tileset, completar los frames de NPC y producir la primera tanda de ambiente, pasos y señales sonoras sin cambiar las reglas del encuentro.

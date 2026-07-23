@@ -5,6 +5,10 @@ signal menu_requested
 signal reset_requested
 
 const INTERACTION_DISTANCE := 48.0
+const NPC_SHEET := preload("res://assets/generated/processed/npcs_sheet_v1.png")
+const PROP_SHEET := preload("res://assets/generated/processed/market_props_v1.png")
+const NPC_FRAME := Vector2(1672.0 / 7.0, 941.0 / 3.0)
+const PROP_FRAME := Vector2(256, 256)
 const INTERPRETATIONS: Array[Dictionary] = [
 	{"id": &"choice.apate.interpretation.all_shortcuts_wrong", "key": &"APATE_INTERPRETATION_A"},
 	{"id": &"choice.apate.interpretation.hidden_cost_and_false_choice", "key": &"APATE_INTERPRETATION_B"},
@@ -112,9 +116,9 @@ func build_hud() -> void:
 
 func build_name_labels() -> void:
 	for data in [
-		["Neria", Vector2(119, 172), Color("#87a591")],
-		["Mara", Vector2(287, 194), Color("#aa8169")],
-		["Apatē", Vector2(470, 132), Color("#c69a69")]
+		["Neria", Vector2(119, 151), Color("#87a591")],
+		["Mara", Vector2(287, 173), Color("#aa8169")],
+		["Apatē", Vector2(470, 108), Color("#c69a69")]
 	]:
 		var label := Label.new()
 		label.text = data[0]
@@ -334,30 +338,35 @@ func _draw() -> void:
 	for mirror_x in [456, 520]:
 		draw_rect(Rect2(mirror_x, 99, 7, 28), Color("#b5c4c1"), true)
 
-	var sign_color := Color("#8ba17b") if GameSession.has_flag(&"flag.truthful_sign_installed") else Color("#4d3028")
-	draw_rect(Rect2(178, 96, 55, 28), sign_color)
-	draw_line(Vector2(205, 124), Vector2(205, 154), Color("#332c29"), 4)
-	if GameSession.has_flag(&"flag.truthful_sign_installed"):
-		draw_line(Vector2(183, 102), Vector2(227, 102), Color("#e7ddbd"), 2)
-		draw_line(Vector2(183, 110), Vector2(223, 110), Color("#e7ddbd"), 2)
-	else:
-		draw_line(Vector2(181, 100), Vector2(230, 119), Color("#1d1718"), 5)
+	var sign_column := 1 if GameSession.has_flag(&"flag.truthful_sign_installed") else 0
+	draw_prop(Rect2(160, 78, 90, 90), sign_column, 0)
+	draw_prop(Rect2(445, 91, 40, 40), 2, 0)
+	draw_prop(Rect2(510, 91, 40, 40), 3, 0)
+	draw_prop(Rect2(350, 268, 44, 44), 4, 0)
+	draw_prop(Rect2(396, 268, 44, 44), 5, 0)
 
-	draw_person(interactables[&"neria"], Color("#587260"))
-	draw_person(interactables[&"mara"], Color("#865f50"))
-	draw_person(interactables[&"apate"], Color("#926b48"))
+	draw_npc(interactables[&"neria"], 0)
+	draw_npc(interactables[&"mara"], 1)
+	draw_npc(interactables[&"apate"], 2)
 
 	if GameSession.encounter.outcome_id == &"discerned_and_warned":
-		draw_person(Vector2(250, 145), Color("#6e7680"))
-		draw_person(Vector2(270, 145), Color("#786e61"))
+		draw_traveler(Vector2(250, 145), 3)
+		draw_traveler(Vector2(270, 145), 4)
 	elif GameSession.encounter.outcome_id == &"accepted_shortcut":
-		draw_person(Vector2(545, 184), Color("#7c776c"))
-		draw_person(Vector2(565, 174), Color("#5f6e70"))
+		draw_traveler(Vector2(545, 184), 4)
+		draw_traveler(Vector2(565, 174), 5)
 	elif GameSession.encounter.outcome_id == &"exposed_publicly":
-		for point in [Vector2(420, 205), Vector2(445, 220), Vector2(530, 215), Vector2(555, 198)]:
-			draw_person(point, Color("#70616d"))
+		var crowd := [Vector2(420, 205), Vector2(445, 220), Vector2(530, 215), Vector2(555, 198)]
+		for index in crowd.size():
+			draw_traveler(crowd[index], 3 + index % 3)
 
-func draw_person(at: Vector2, cloak: Color) -> void:
-	draw_circle(at + Vector2(0, -11), 5, Color("#b98d68"))
-	draw_polygon(PackedVector2Array([at + Vector2(-8, -6), at + Vector2(8, -6), at + Vector2(10, 12), at + Vector2(-10, 12)]), PackedColorArray([cloak]))
+func draw_npc(at: Vector2, row: int) -> void:
+	var source := Rect2(0.0, NPC_FRAME.y * row, NPC_FRAME.x, NPC_FRAME.y)
+	draw_texture_rect_region(NPC_SHEET, Rect2(at.x - 24, at.y - 52, 48, 64), source)
 
+func draw_prop(destination: Rect2, column: int, row: int) -> void:
+	var source := Rect2(PROP_FRAME.x * column, PROP_FRAME.y * row, PROP_FRAME.x, PROP_FRAME.y)
+	draw_texture_rect_region(PROP_SHEET, destination, source)
+
+func draw_traveler(at: Vector2, column: int) -> void:
+	draw_prop(Rect2(at.x - 22, at.y - 42, 44, 44), column, 3)
