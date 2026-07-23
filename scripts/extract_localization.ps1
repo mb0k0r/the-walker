@@ -88,7 +88,7 @@ $manual = [ordered]@{
 	UI_JOURNAL = @('Diario', 'Journal')
 	UI_CODEX = @('Códice', 'Codex')
 	UI_CLOSE = @('Cerrar', 'Close')
-	UI_INTERACT = @('[E] Interactuar', '[E] Interact')
+	UI_INTERACT = @('E / ENTER', 'E / ENTER')
 	UI_SIGN = @('Letrero oriental', 'Eastern road sign')
 	UI_TALK_NERIA = @('Hablar con Neria', 'Talk to Neria')
 	UI_TALK_MARA = @('Hablar con Mara', 'Talk to Mara')
@@ -106,7 +106,12 @@ $manual = [ordered]@{
 	UI_CORRUPT_SAVE = @('La partida guardada no pudo leerse. Puedes comenzar una nueva.', 'The saved game could not be read. You can start a new one.')
 	UI_PAUSED = @('Pausa', 'Paused')
 	UI_RESUME = @('Continuar', 'Resume')
-	UI_HINT_JOURNAL = @('J: Diario   C: Códice   Esc: Pausa', 'J: Journal   C: Codex   Esc: Pause')
+	UI_HINT_JOURNAL = @('J Diario · C Códice · Esc Pausa', 'J Journal · C Codex · Esc Pause')
+	UI_MENU_KEYBOARD_HINT = @('W/S Navegar · A/D Ajustar volumen · E/Enter Confirmar', 'W/S Navigate · A/D Adjust volume · E/Enter Confirm')
+	UI_DIALOGUE_KEYBOARD_HINT = @('E / ENTER', 'E / ENTER')
+	UI_CHOICE_KEYBOARD_HINT = @('W/S Elegir · 1-3 Atajo · E/Enter Confirmar', 'W/S Choose · 1-3 Shortcut · E/Enter Confirm')
+	UI_LIBRARY_KEYBOARD_HINT = @('W/S Desplazar · J/C/Esc Cerrar', 'W/S Scroll · J/C/Esc Close')
+	UI_PAUSE_KEYBOARD_HINT = @('W/S Navegar · E/Enter Confirmar · Esc Reanudar', 'W/S Navigate · E/Enter Confirm · Esc Resume')
 	UI_REFS = @('Referencias: Hebreos 3:13 · Colosenses 2:8 · Mateo 13:22', 'References: Hebrews 3:13 · Colossians 2:8 · Matthew 13:22')
 }
 

@@ -23,8 +23,12 @@ const APPLICATIONS: Array[Dictionary] = [
 var dialogue: DialogueResource
 var player: Wayfarer
 var canvas: CanvasLayer
+var hud: Control
 var prompt: Label
+var prompt_card: PanelContainer
 var objective: Label
+var pause_overlay: Control
+var pause_buttons: Array[Button] = []
 var busy := false
 var current_interactable := &""
 var interactables := {
@@ -43,6 +47,8 @@ func _ready() -> void:
 	build_name_labels()
 	GameSession.state_changed.connect(_on_state_changed)
 	Locale.locale_changed.connect(func(_locale): refresh_text())
+	get_viewport().size_changed.connect(layout_viewport)
+	layout_viewport()
 	queue_redraw()
 
 func begin(show_intro := true, start_encounter := false) -> void:
@@ -54,16 +60,32 @@ func begin(show_intro := true, start_encounter := false) -> void:
 
 func _process(_delta: float) -> void:
 	if busy:
-		prompt.visible = false
+		prompt_card.visible = false
 		return
 	current_interactable = nearest_interactable()
-	prompt.visible = not current_interactable.is_empty()
-	if prompt.visible:
+	prompt_card.visible = not current_interactable.is_empty()
+	if prompt_card.visible:
 		prompt.text = "%s  %s" % [Locale.text(&"UI_INTERACT"), interaction_name(current_interactable)]
 	if Input.is_action_just_pressed("interact") and not current_interactable.is_empty():
 		interact(current_interactable)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if is_instance_valid(pause_overlay):
+		if event.is_action_pressed("ui_cancel"):
+			close_pause()
+			get_viewport().set_input_as_handled()
+		elif event.is_action_pressed("move_up"):
+			_move_pause_focus(-1)
+			get_viewport().set_input_as_handled()
+		elif event.is_action_pressed("move_down"):
+			_move_pause_focus(1)
+			get_viewport().set_input_as_handled()
+		elif event.is_action_pressed("interact"):
+			var focused := get_viewport().gui_get_focus_owner()
+			if focused is Button and not focused.disabled:
+				focused.pressed.emit()
+				get_viewport().set_input_as_handled()
+		return
 	if busy:
 		return
 	if event.is_action_pressed("open_journal"):
@@ -81,50 +103,86 @@ func build_hud() -> void:
 	canvas.layer = 20
 	add_child(canvas)
 
+	hud = Control.new()
+	hud.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	hud.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	canvas.add_child(hud)
+
 	var top := PanelContainer.new()
-	top.position = Vector2(8, 8)
-	top.size = Vector2(624, 58)
-	top.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#17151bd9"), Color("#7f6c49")))
-	canvas.add_child(top)
+	top.position = Vector2(10, 10)
+	top.size = Vector2(342, 48)
+	top.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	top.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#111017e8"), Color("#756649"), 1))
+	hud.add_child(top)
 	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 1)
 	top.add_child(column)
-	var location := UIFactory.label(&"UI_LOCATION_MARKET", 17)
+	var location := UIFactory.label(&"UI_LOCATION_MARKET", 14)
 	location.name = "Location"
 	location.add_theme_color_override("font_color", Color("#f2dfb5"))
 	column.add_child(location)
 	objective = Label.new()
-	objective.add_theme_font_size_override("font_size", 12)
+	objective.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	objective.add_theme_font_size_override("font_size", 10)
+	objective.add_theme_color_override("font_color", Color("#c6c0b7"))
 	column.add_child(objective)
 
+	var help_card := PanelContainer.new()
+	help_card.anchor_left = 1.0
+	help_card.anchor_right = 1.0
+	help_card.offset_left = -274.0
+	help_card.offset_top = 10.0
+	help_card.offset_right = -10.0
+	help_card.offset_bottom = 39.0
+	help_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	help_card.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#111017d9"), Color("#4e493e"), 1))
+	hud.add_child(help_card)
+	var hint := UIFactory.label(&"UI_HINT_JOURNAL", 9)
+	hint.name = "Hint"
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.add_theme_color_override("font_color", UIFactory.TEXT_MUTED)
+	help_card.add_child(hint)
+
+	prompt_card = PanelContainer.new()
+	prompt_card.anchor_left = 0.5
+	prompt_card.anchor_top = 1.0
+	prompt_card.anchor_right = 0.5
+	prompt_card.anchor_bottom = 1.0
+	prompt_card.offset_left = -150.0
+	prompt_card.offset_top = -46.0
+	prompt_card.offset_right = 150.0
+	prompt_card.offset_bottom = -14.0
+	prompt_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	prompt_card.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#111017f2"), Color("#bd9d61"), 1))
+	hud.add_child(prompt_card)
 	prompt = Label.new()
-	prompt.position = Vector2(170, 310)
-	prompt.size = Vector2(300, 26)
 	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	prompt.add_theme_font_size_override("font_size", 11)
 	prompt.add_theme_color_override("font_color", Color("#f5e6bd"))
 	prompt.add_theme_color_override("font_shadow_color", Color.BLACK)
 	prompt.add_theme_constant_override("shadow_offset_x", 1)
 	prompt.add_theme_constant_override("shadow_offset_y", 1)
-	canvas.add_child(prompt)
-
-	var hint := UIFactory.label(&"UI_HINT_JOURNAL", 11)
-	hint.name = "Hint"
-	hint.position = Vector2(408, 340)
-	hint.size = Vector2(225, 18)
-	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	canvas.add_child(hint)
+	prompt_card.add_child(prompt)
+	prompt_card.visible = false
 	refresh_text()
 
 func build_name_labels() -> void:
 	for data in [
-		["Neria", Vector2(119, 151), Color("#87a591")],
-		["Mara", Vector2(287, 173), Color("#aa8169")],
-		["Apatē", Vector2(470, 108), Color("#c69a69")]
+		["Neria", &"neria", Color("#9bb6a4")],
+		["Mara", &"mara", Color("#c2947b")],
+		["Apatē", &"apate", Color("#d5aa72")]
 	]:
 		var label := Label.new()
 		label.text = data[0]
-		label.position = data[1]
-		label.add_theme_font_size_override("font_size", 12)
+		label.position = interactables[data[1]] + Vector2(-45, -70)
+		label.size = Vector2(90, 18)
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.add_theme_font_size_override("font_size", 10)
 		label.add_theme_color_override("font_color", data[2])
+		label.add_theme_color_override("font_shadow_color", Color("#09080bcc"))
+		label.add_theme_constant_override("shadow_offset_x", 1)
+		label.add_theme_constant_override("shadow_offset_y", 1)
 		add_child(label)
 
 func refresh_text() -> void:
@@ -224,12 +282,14 @@ func start_apate_encounter() -> void:
 func choose(prompt_key: StringName, choices: Array[Dictionary]) -> StringName:
 	busy = true
 	player.input_enabled = false
+	set_hud_visible(false)
 	var panel := ChoicePanel.new()
 	canvas.add_child(panel)
 	panel.present(prompt_key, choices)
 	var result: StringName = await panel.choice_selected
 	busy = false
 	player.input_enabled = true
+	set_hud_visible(true)
 	return result
 
 func play_dialogue(title: StringName) -> void:
@@ -237,10 +297,12 @@ func play_dialogue(title: StringName) -> void:
 		return
 	busy = true
 	player.input_enabled = false
+	set_hud_visible(false)
 	DialogueManager.show_dialogue_balloon(dialogue, String(title))
 	await DialogueManager.dialogue_ended
 	busy = false
 	player.input_enabled = true
+	set_hud_visible(true)
 
 func interpretation_title(id: StringName) -> StringName:
 	if id == &"choice.apate.interpretation.all_shortcuts_wrong": return &"interpretation_a"
@@ -269,63 +331,135 @@ func post_title(id: StringName) -> StringName:
 	return &""
 
 func open_library(journal: bool) -> void:
+	busy = true
+	player.input_enabled = false
+	set_hud_visible(false)
 	var panel := LibraryPanel.new()
 	canvas.add_child(panel)
+	panel.tree_exited.connect(func():
+		busy = false
+		player.input_enabled = true
+		set_hud_visible(true)
+	)
 	if journal:
 		panel.show_journal()
 	else:
 		panel.show_codex()
 
 func open_pause() -> void:
+	if is_instance_valid(pause_overlay):
+		return
 	busy = true
 	player.input_enabled = false
 	var shade := ColorRect.new()
-	shade.color = Color("#08070add")
+	pause_overlay = shade
+	shade.color = Color("#08070af2")
 	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
 	canvas.add_child(shade)
+
+	var panel := PanelContainer.new()
+	panel.anchor_left = 0.5
+	panel.anchor_top = 0.5
+	panel.anchor_right = 0.5
+	panel.anchor_bottom = 0.5
+	panel.offset_left = -150.0
+	panel.offset_top = -110.0
+	panel.offset_right = 150.0
+	panel.offset_bottom = 110.0
+	panel.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#15131afb"), Color("#92794f"), 1))
+	shade.add_child(panel)
 	var box := VBoxContainer.new()
-	box.position = Vector2(190, 86)
-	box.size = Vector2(260, 220)
 	box.alignment = BoxContainer.ALIGNMENT_CENTER
-	shade.add_child(box)
-	var title := UIFactory.label(&"UI_PAUSED", 28)
+	box.add_theme_constant_override("separation", 7)
+	panel.add_child(box)
+	var title := UIFactory.label(&"UI_PAUSED", 24)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	title.add_theme_color_override("font_color", Color("#f2dfb5"))
 	box.add_child(title)
-	var resume := UIFactory.button(&"UI_RESUME")
-	resume.pressed.connect(func(): shade.queue_free(); busy = false; player.input_enabled = true)
+	var resume := UIFactory.button(&"UI_RESUME", 248)
+	resume.pressed.connect(close_pause)
 	box.add_child(resume)
-	var reset := UIFactory.button(&"UI_RESET_SLICE")
+	var reset := UIFactory.button(&"UI_RESET_SLICE", 248)
 	reset.pressed.connect(func(): reset_requested.emit())
 	box.add_child(reset)
-	var menu := UIFactory.button(&"UI_QUIT_TO_MENU")
+	var menu := UIFactory.button(&"UI_QUIT_TO_MENU", 248)
 	menu.pressed.connect(func(): GameSession.player_position = player.position; SaveManager.save_game(); menu_requested.emit())
 	box.add_child(menu)
-	resume.grab_focus()
+	pause_buttons = [resume, reset, menu]
+	var hint := UIFactory.label(&"UI_PAUSE_KEYBOARD_HINT", 9)
+	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	hint.add_theme_color_override("font_color", UIFactory.TEXT_MUTED)
+	box.add_child(hint)
+	var controls: Array[Control] = [resume, reset, menu]
+	UIFactory.link_vertical(controls)
+
+func close_pause() -> void:
+	if not is_instance_valid(pause_overlay):
+		return
+	var overlay := pause_overlay
+	pause_overlay = null
+	pause_buttons.clear()
+	overlay.queue_free()
+	busy = false
+	player.input_enabled = true
+	set_hud_visible(true)
+
+func _move_pause_focus(direction: int) -> void:
+	if pause_buttons.is_empty():
+		return
+	var focused := get_viewport().gui_get_focus_owner()
+	var index := pause_buttons.find(focused)
+	if index < 0:
+		index = -1 if direction > 0 else 0
+	index = posmod(index + direction, pause_buttons.size())
+	pause_buttons[index].grab_focus()
 
 func show_toast(key: StringName, duration := 1.5) -> void:
-	var toast := Label.new()
-	toast.text = Locale.text(key)
-	toast.position = Vector2(150, 78)
-	toast.size = Vector2(340, 28)
-	toast.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	toast.add_theme_color_override("font_color", Color("#ffe6a8"))
-	toast.add_theme_color_override("font_shadow_color", Color.BLACK)
+	var toast := PanelContainer.new()
+	toast.anchor_left = 0.5
+	toast.anchor_right = 0.5
+	toast.offset_left = -145.0
+	toast.offset_top = 70.0
+	toast.offset_right = 145.0
+	toast.offset_bottom = 104.0
+	toast.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	toast.add_theme_stylebox_override("panel", UIFactory.panel_style(Color("#15131af5"), Color("#b49358"), 1))
+	var toast_label := Label.new()
+	toast_label.text = Locale.text(key)
+	toast_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	toast_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	toast_label.add_theme_font_size_override("font_size", 10)
+	toast_label.add_theme_color_override("font_color", Color("#ffe6a8"))
+	toast.add_child(toast_label)
 	canvas.add_child(toast)
 	await get_tree().create_timer(duration).timeout
 	if is_instance_valid(toast):
 		toast.queue_free()
+
+func set_hud_visible(value: bool) -> void:
+	if is_instance_valid(hud):
+		hud.visible = value
+
+func layout_viewport() -> void:
+	position = (get_viewport_rect().size - Vector2(640, 360)) * 0.5
+	queue_redraw()
 
 func _on_state_changed() -> void:
 	refresh_text()
 	queue_redraw()
 
 func _draw() -> void:
-	draw_rect(Rect2(0, 0, 640, 360), Color("#25222a"))
-	draw_rect(Rect2(0, 66, 640, 294), Color("#6b5a43"))
-	for x in range(0, 640, 32):
-		for y in range(72, 360, 32):
+	var viewport_size := get_viewport_rect().size
+	var viewport_origin := -position
+	var viewport_end := viewport_origin + viewport_size
+	draw_rect(Rect2(viewport_origin, viewport_size), Color("#25222a"))
+	draw_rect(Rect2(viewport_origin.x, 66, viewport_size.x, viewport_end.y - 66), Color("#6b5a43"))
+	var first_column := floori(viewport_origin.x / 32.0) * 32
+	for x in range(first_column, ceili(viewport_end.x) + 32, 32):
+		for y in range(72, ceili(viewport_end.y) + 32, 32):
 			draw_rect(Rect2(x + ((y / 32 as int) % 2) * 7, y, 25, 18), Color("#75644d"), false, 1)
-	draw_rect(Rect2(0, 66, 640, 25), Color("#3d3940"))
+	draw_rect(Rect2(viewport_origin.x, 66, viewport_size.x, 25), Color("#3d3940"))
 	draw_rect(Rect2(180, 66, 62, 25), Color("#806c4b"))
 	draw_polygon(PackedVector2Array([Vector2(188, 360), Vector2(246, 360), Vector2(228, 90), Vector2(196, 90)]), PackedColorArray([Color("#8d7a5c")]))
 

@@ -5,61 +5,63 @@
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_u7mce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spyqn"]
-bg_color = Color(0, 0, 0, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(0.329412, 0.329412, 0.329412, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
+bg_color = Color(0.0705882, 0.0627451, 0.0862745, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.278431, 0.25098, 0.294118, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri4m3"]
-bg_color = Color(0.121569, 0.121569, 0.121569, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
-bg_color = Color(0, 0, 0, 0.784314)
+bg_color = Color(0.184314, 0.156863, 0.12549, 0.98)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
+border_color = Color(0.94902, 0.796078, 0.470588, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e0njw"]
+bg_color = Color(0.105882, 0.0941176, 0.121569, 0.96)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.321569, 0.286275, 0.337255, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uy0d5"]
-bg_color = Color(0, 0, 0, 0.784314)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+bg_color = Color(0.054902, 0.0470588, 0.0666667, 0.94)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.517647, 0.45098, 0.313726, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 
 [sub_resource type="Theme" id="Theme_vnod2"]
-default_font_size = 20
+default_font_size = 13
 Button/styles/disabled = SubResource("StyleBoxFlat_spyqn")
 Button/styles/focus = SubResource("StyleBoxFlat_ri4m3")
 Button/styles/hover = SubResource("StyleBoxFlat_e0njw")
 Button/styles/normal = SubResource("StyleBoxFlat_e0njw")
-MarginContainer/constants/margin_bottom = 15
-MarginContainer/constants/margin_left = 30
-MarginContainer/constants/margin_right = 30
-MarginContainer/constants/margin_top = 15
+MarginContainer/constants/margin_bottom = 14
+MarginContainer/constants/margin_left = 18
+MarginContainer/constants/margin_right = 18
+MarginContainer/constants/margin_top = 14
 Panel/styles/panel = SubResource("StyleBoxFlat_uy0d5")
 
 [sub_resource type="Animation" id="Animation_nlsx6"]
@@ -102,6 +104,8 @@ _data = {
 process_mode = 3
 layer = 100
 script = ExtResource("1_th60n")
+next_action = &"interact"
+skip_action = &"interact"
 
 [node name="Balloon" type="Control" parent="." unique_id=1206662936]
 unique_name_in_owner = true
@@ -116,10 +120,13 @@ theme = SubResource("Theme_vnod2")
 [node name="NameContainer" type="Panel" parent="Balloon" unique_id=448022621]
 z_index = 1
 layout_mode = 0
-offset_left = 20.0
-offset_top = 225.0
-offset_right = 180.0
-offset_bottom = 255.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -149.0
+offset_right = 166.0
+offset_bottom = -122.0
+grow_vertical = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/NameContainer" unique_id=744730698]
 clip_contents = true
@@ -136,9 +143,10 @@ theme_override_constants/margin_bottom = 0
 
 [node name="CharacterLabel" type="RichTextLabel" parent="Balloon/NameContainer/MarginContainer" unique_id=2005030931]
 unique_name_in_owner = true
-modulate = Color(0.905882, 0.678431, 0.537255, 1)
+modulate = Color(0.94902, 0.796078, 0.564706, 1)
 layout_mode = 2
-mouse_filter = 1
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 12
 bbcode_enabled = true
 text = ""
 fit_content = true
@@ -153,21 +161,19 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -120.0
-offset_right = -10.0
-offset_bottom = -8.0
+offset_left = 20.0
+offset_top = -124.0
+offset_right = -20.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="Dialogue" type="MarginContainer" parent="Balloon/Panel" unique_id=1048857237]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -14.0
-offset_right = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -176,8 +182,11 @@ layout_mode = 2
 
 [node name="DialogueLabel" parent="Balloon/Panel/Dialogue/VBoxContainer" unique_id=950510308 instance=ExtResource("2_l2rj6")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 76)
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 13
 text = ""
 
 [node name="Control" type="Control" parent="Balloon/Panel" unique_id=1598793260]
@@ -198,11 +207,32 @@ size_flags_vertical = 8
 
 [node name="Progress" type="Polygon2D" parent="Balloon/Panel/Control" unique_id=662793009]
 unique_name_in_owner = true
+color = Color(0.94902, 0.796078, 0.564706, 1)
 polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Balloon/Panel/Control" unique_id=639656769]
 libraries/ = SubResource("AnimationLibrary_th60n")
 autoplay = &"progress"
+
+[node name="AdvanceHint" type="Label" parent="Balloon/Panel" unique_id=1850719822]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -23.0
+offset_right = -14.0
+offset_bottom = -7.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.666667, 0.635294, 0.584314, 1)
+theme_override_font_sizes/font_size = 9
+text = "E / ENTER"
+horizontal_alignment = 2
 
 [node name="Responses" type="MarginContainer" parent="Balloon" unique_id=1896913694]
 layout_mode = 1
@@ -211,10 +241,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -58.0
-offset_top = -357.0
-offset_right = 337.0
-offset_bottom = -116.0
+offset_left = -280.0
+offset_top = -344.0
+offset_right = 280.0
+offset_bottom = -138.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -227,8 +257,13 @@ script = ExtResource("3_u7mce")
 response_template = NodePath("ResponseExample")
 
 [node name="ResponseExample" type="Button" parent="Balloon/Responses/ResponsesMenu" unique_id=755879251]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+mouse_filter = 2
+theme_override_font_sizes/font_size = 12
 text = "Response example"
+alignment = 0
+autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=865861096]
 unique_name_in_owner = true

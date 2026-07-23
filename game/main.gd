@@ -3,6 +3,7 @@ extends Node
 var active_screen: Node
 
 func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	show_menu()
 
 func show_menu() -> void:
@@ -46,4 +47,3 @@ func clear_screen() -> void:
 	if is_instance_valid(active_screen):
 		active_screen.queue_free()
 	active_screen = null
-
