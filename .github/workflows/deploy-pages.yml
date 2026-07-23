@@ -45,7 +45,8 @@ jobs:
           cp -R templates/. "${HOME}/.local/share/godot/export_templates/${GODOT_TEMPLATES_DIR}/"
 
       - name: Import project
-        run: "./${GODOT_EXE}" --headless --path . --import --quit
+        run: |
+          "./${GODOT_EXE}" --headless --path . --import --quit
 
       - name: Export Web game
         run: |
