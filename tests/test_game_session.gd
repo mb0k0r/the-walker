@@ -1,7 +1,15 @@
 extends GutTest
 
+const TEST_SAVE_PATH := "user://autosave.test.json"
+
 func before_each() -> void:
 	GameSession.reset()
+	SaveManager.save_path = TEST_SAVE_PATH
+	SaveManager.delete_save()
+
+func after_each() -> void:
+	SaveManager.delete_save()
+	SaveManager.save_path = SaveManager.SAVE_PATH
 
 func test_outcome_applies_flags_stats_journal_and_codex() -> void:
 	GameSession.apply_outcome(&"discerned_and_warned")
@@ -31,3 +39,12 @@ func test_future_or_unknown_schema_is_rejected() -> void:
 func test_invalid_json_is_rejected() -> void:
 	assert_eq(SaveManager.decode("not json"), {})
 
+func test_save_file_round_trip_uses_an_isolated_test_path() -> void:
+	GameSession.player_position = Vector2(418, 207)
+	GameSession.add_clue(&"clue.apate_hidden_toll")
+	assert_true(SaveManager.save_game())
+	assert_true(SaveManager.has_save())
+	GameSession.reset()
+	assert_true(SaveManager.load_game())
+	assert_eq(GameSession.player_position, Vector2(418, 207))
+	assert_true(GameSession.has_clue(&"clue.apate_hidden_toll"))

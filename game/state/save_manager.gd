@@ -7,12 +7,13 @@ signal loaded
 signal load_failed
 
 var last_load_failed := false
+var save_path := SAVE_PATH
 
 func has_save() -> bool:
-	return FileAccess.file_exists(SAVE_PATH)
+	return FileAccess.file_exists(save_path)
 
 func save_game() -> bool:
-	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	var file := FileAccess.open(save_path, FileAccess.WRITE)
 	if file == null:
 		return false
 	file.store_string(JSON.stringify(GameSession.to_dict(), "\t"))
@@ -24,7 +25,7 @@ func load_game() -> bool:
 	last_load_failed = false
 	if not has_save():
 		return false
-	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
+	var file := FileAccess.open(save_path, FileAccess.READ)
 	if file == null:
 		last_load_failed = true
 		load_failed.emit()
@@ -40,11 +41,10 @@ func load_game() -> bool:
 
 func delete_save() -> void:
 	if has_save():
-		DirAccess.remove_absolute(SAVE_PATH)
+		DirAccess.remove_absolute(save_path)
 
 func decode(value: String) -> Dictionary:
 	var json := JSON.new()
 	if json.parse(value) != OK or not json.data is Dictionary:
 		return {}
 	return json.data as Dictionary
-
