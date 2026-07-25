@@ -5,6 +5,8 @@ signal menu_requested
 signal reset_requested
 
 const INTERACTION_DISTANCE := 48.0
+const BASE_SIZE := Vector2(640, 360)
+const AUTOSAVE_INTERVAL := 3.0
 const MARKET_BACKGROUND := preload("res://assets/generated/processed/market_background_v2.png")
 const NPC_SHEET := preload("res://assets/generated/processed/npcs_sheet_v1.png")
 const PROP_SHEET := preload("res://assets/generated/processed/market_props_v1.png")
@@ -31,7 +33,13 @@ var objective: Label
 var pause_overlay: Control
 var pause_buttons: Array[Button] = []
 var busy := false
+var development_lab := false
+var interaction_rearm_required := false
+var autosave_elapsed := 0.0
+var last_autosave_position := Vector2.ZERO
 var current_interactable := &""
+var sign_sprite: Sprite2D
+var traveler_visuals: Array[Node2D] = []
 var interactables := {
 	&"sign": Vector2(244, 140),
 	&"neria": Vector2(166, 232),
@@ -41,25 +49,30 @@ var interactables := {
 
 func _ready() -> void:
 	dialogue = load("res://dialogues/apate.dialogue") as DialogueResource
+	y_sort_enabled = true
 	player = Wayfarer.new()
 	player.position = GameSession.player_position
+	player.set_collision_rects(build_collision_rects())
 	add_child(player)
+	build_actor_visuals()
 	build_hud()
 	build_name_labels()
+	last_autosave_position = player.position
 	GameSession.state_changed.connect(_on_state_changed)
 	Locale.locale_changed.connect(func(_locale): refresh_text())
 	get_viewport().size_changed.connect(layout_viewport)
 	layout_viewport()
 	queue_redraw()
 
-func begin(show_intro := true, start_encounter := false) -> void:
+func begin(show_intro := true, start_encounter := false, lab_mode := false) -> void:
+	development_lab = lab_mode
 	if show_intro:
 		await play_dialogue(&"tutorial")
 		await play_dialogue(&"market_intro")
 	if start_encounter:
 		await start_apate_encounter()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	if busy:
 		prompt_card.visible = false
 		return
@@ -67,10 +80,15 @@ func _process(_delta: float) -> void:
 	prompt_card.visible = not current_interactable.is_empty()
 	if prompt_card.visible:
 		prompt.text = "%s  %s" % [Locale.text(&"UI_INTERACT"), interaction_name(current_interactable)]
-	if Input.is_action_just_pressed("interact") and not current_interactable.is_empty():
-		interact(current_interactable)
+	if not development_lab:
+		autosave_elapsed += delta
+		if autosave_elapsed >= AUTOSAVE_INTERVAL and player.position.distance_to(last_autosave_position) >= 4.0:
+			autosave()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("interact"):
+		interaction_rearm_required = false
+		return
 	if is_instance_valid(pause_overlay):
 		if event.is_action_pressed("ui_cancel"):
 			close_pause()
@@ -98,6 +116,18 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		open_pause()
 		get_viewport().set_input_as_handled()
+	elif should_accept_interaction(event):
+		current_interactable = nearest_interactable()
+		if not current_interactable.is_empty():
+			get_viewport().set_input_as_handled()
+			interact(current_interactable)
+
+func should_accept_interaction(event: InputEvent) -> bool:
+	if busy or interaction_rearm_required or current_interactable.is_empty():
+		return false
+	if event is InputEventKey and event.echo:
+		return false
+	return event.is_action_pressed("interact")
 
 func build_hud() -> void:
 	canvas = CanvasLayer.new()
@@ -183,7 +213,102 @@ func build_name_labels() -> void:
 		label.add_theme_color_override("font_color", data[2])
 		label.add_theme_color_override("font_outline_color", Color("#09080bf2"))
 		label.add_theme_constant_override("outline_size", 2)
+		label.z_index = 1000
 		add_child(label)
+
+func build_actor_visuals() -> void:
+	create_npc_visual(&"neria", 0)
+	create_npc_visual(&"mara", 1)
+	create_npc_visual(&"apate", 2)
+
+	var sign := Node2D.new()
+	sign.name = "Sign"
+	sign.position = Vector2(244, 149)
+	sign_sprite = Sprite2D.new()
+	sign_sprite.texture = PROP_SHEET
+	sign_sprite.region_enabled = true
+	sign_sprite.region_filter_clip_enabled = true
+	sign_sprite.position = Vector2(0, -29)
+	sign_sprite.scale = Vector2(58.0 / PROP_FRAME.x, 58.0 / PROP_FRAME.y)
+	sign_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sign.add_child(sign_sprite)
+	add_child(sign)
+	refresh_actor_visuals()
+
+func create_npc_visual(id: StringName, row: int) -> void:
+	var actor := Node2D.new()
+	actor.name = String(id).capitalize()
+	actor.position = interactables[id]
+	add_character_shadow(actor)
+	var actor_sprite := Sprite2D.new()
+	actor_sprite.texture = NPC_SHEET
+	actor_sprite.region_enabled = true
+	actor_sprite.region_filter_clip_enabled = true
+	actor_sprite.region_rect = Rect2(0.0, NPC_FRAME.y * row, NPC_FRAME.x, NPC_FRAME.y)
+	actor_sprite.position = Vector2(0, -22)
+	actor_sprite.scale = Vector2(50.0 / NPC_FRAME.x, 68.0 / NPC_FRAME.y)
+	actor_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	actor.add_child(actor_sprite)
+	add_child(actor)
+
+func add_character_shadow(actor: Node2D) -> void:
+	var shadow := Polygon2D.new()
+	var points := PackedVector2Array()
+	for index in range(18):
+		var angle := TAU * float(index) / 18.0
+		points.append(Vector2(cos(angle) * 12.0, sin(angle) * 4.0) + Vector2(0, 8))
+	shadow.polygon = points
+	shadow.color = Color("#0303068c")
+	actor.add_child(shadow)
+
+func refresh_actor_visuals() -> void:
+	if is_instance_valid(sign_sprite):
+		var sign_column := 1 if GameSession.has_flag(&"flag.truthful_sign_installed") else 0
+		sign_sprite.region_rect = Rect2(PROP_FRAME.x * sign_column, 0, PROP_FRAME.x, PROP_FRAME.y)
+	for traveler in traveler_visuals:
+		traveler.queue_free()
+	traveler_visuals.clear()
+	match GameSession.encounter.outcome_id:
+		&"discerned_and_warned":
+			create_traveler_visual(Vector2(250, 145), 3)
+			create_traveler_visual(Vector2(270, 145), 4)
+		&"accepted_shortcut":
+			create_traveler_visual(Vector2(545, 184), 4)
+			create_traveler_visual(Vector2(565, 174), 5)
+		&"exposed_publicly":
+			for data in [
+				[Vector2(420, 205), 3],
+				[Vector2(445, 220), 4],
+				[Vector2(530, 215), 5],
+				[Vector2(555, 198), 3]
+			]:
+				create_traveler_visual(data[0], data[1])
+
+func create_traveler_visual(at: Vector2, column: int) -> void:
+	var traveler := Node2D.new()
+	traveler.position = at
+	add_character_shadow(traveler)
+	var traveler_sprite := Sprite2D.new()
+	traveler_sprite.texture = PROP_SHEET
+	traveler_sprite.region_enabled = true
+	traveler_sprite.region_filter_clip_enabled = true
+	traveler_sprite.region_rect = Rect2(PROP_FRAME.x * column, PROP_FRAME.y * 3, PROP_FRAME.x, PROP_FRAME.y)
+	traveler_sprite.position = Vector2(0, -20)
+	traveler_sprite.scale = Vector2(44.0 / PROP_FRAME.x, 44.0 / PROP_FRAME.y)
+	traveler_sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	traveler.add_child(traveler_sprite)
+	add_child(traveler)
+	traveler_visuals.append(traveler)
+
+func build_collision_rects() -> Array[Rect2]:
+	var result: Array[Rect2] = [
+		Rect2(22, 76, 134, 130),
+		Rect2(430, 76, 188, 140),
+		Rect2(214, 90, 60, 62)
+	]
+	for id in [&"neria", &"mara", &"apate"]:
+		result.append(Rect2(interactables[id] - Vector2(10, 7), Vector2(20, 14)))
+	return result
 
 func refresh_text() -> void:
 	if not is_instance_valid(objective):
@@ -225,6 +350,7 @@ func inspect_sign() -> void:
 	await play_dialogue(&"sign")
 	GameSession.set_flag(&"flag.apate_sign_inspected")
 	GameSession.add_clue(&"clue.apate_false_sign", &"APATE_JOURNAL_CLUE_SIGN")
+	autosave()
 	show_toast(&"UI_CLUE_FOUND")
 
 func speak_neria() -> void:
@@ -232,6 +358,7 @@ func speak_neria() -> void:
 	GameSession.set_flag(&"flag.spoke_to_neria_about_apate")
 	GameSession.add_clue(&"clue.apate_tunnel_reaches_gate")
 	GameSession.add_clue(&"clue.apate_cost_is_hidden")
+	autosave()
 	show_toast(&"UI_CLUE_FOUND")
 
 func speak_mara() -> void:
@@ -239,6 +366,7 @@ func speak_mara() -> void:
 	GameSession.set_flag(&"flag.spoke_to_mara_about_apate")
 	GameSession.add_clue(&"clue.apate_hidden_toll")
 	GameSession.add_clue(&"clue.apate_choice_removed")
+	autosave()
 	show_toast(&"UI_CLUE_FOUND")
 
 func start_apate_encounter() -> void:
@@ -270,8 +398,7 @@ func start_apate_encounter() -> void:
 	await play_dialogue(application_title(application))
 	var outcome := OutcomeResolver.resolve(application, GameSession.encounter.interpretation_correct)
 	GameSession.apply_outcome(outcome)
-	GameSession.player_position = player.position
-	SaveManager.save_game()
+	autosave()
 	queue_redraw()
 	refresh_text()
 	await play_dialogue(outcome_title(outcome))
@@ -298,11 +425,32 @@ func play_dialogue(title: StringName) -> void:
 	busy = true
 	player.input_enabled = false
 	set_hud_visible(false)
-	DialogueManager.show_dialogue_balloon(dialogue, String(title))
+	clear_dialogue_balloons()
+	await get_tree().process_frame
+	var balloon := DialogueManager.show_dialogue_balloon(dialogue, String(title))
 	await DialogueManager.dialogue_ended
+	if is_instance_valid(balloon):
+		balloon.queue_free()
+	await get_tree().process_frame
+	clear_dialogue_balloons()
+	await get_tree().process_frame
+	interaction_rearm_required = Input.is_action_pressed("interact")
 	busy = false
 	player.input_enabled = true
 	set_hud_visible(true)
+
+func clear_dialogue_balloons() -> void:
+	for balloon in get_tree().get_nodes_in_group(&"dialogue_balloon"):
+		if is_instance_valid(balloon):
+			balloon.queue_free()
+
+func autosave() -> void:
+	autosave_elapsed = 0.0
+	if development_lab or not is_instance_valid(player):
+		return
+	GameSession.player_position = player.position
+	if SaveManager.save_game():
+		last_autosave_position = player.position
 
 func interpretation_title(id: StringName) -> StringName:
 	if id == &"choice.apate.interpretation.all_shortcuts_wrong": return &"interpretation_a"
@@ -384,7 +532,7 @@ func open_pause() -> void:
 	reset.pressed.connect(func(): reset_requested.emit())
 	box.add_child(reset)
 	var menu := UIFactory.button(&"UI_QUIT_TO_MENU", 248)
-	menu.pressed.connect(func(): GameSession.player_position = player.position; SaveManager.save_game(); menu_requested.emit())
+	menu.pressed.connect(quit_to_menu)
 	box.add_child(menu)
 	pause_buttons = [resume, reset, menu]
 	var hint := UIFactory.label(&"UI_PAUSE_KEYBOARD_HINT", 9)
@@ -404,6 +552,10 @@ func close_pause() -> void:
 	busy = false
 	player.input_enabled = true
 	set_hud_visible(true)
+
+func quit_to_menu() -> void:
+	autosave()
+	menu_requested.emit()
 
 func _move_pause_focus(direction: int) -> void:
 	if pause_buttons.is_empty():
@@ -442,71 +594,32 @@ func set_hud_visible(value: bool) -> void:
 		hud.visible = value
 
 func layout_viewport() -> void:
-	position = (get_viewport_rect().size - Vector2(640, 360)) * 0.5
+	var transform := calculate_world_transform(get_viewport_rect().size)
+	scale = Vector2.ONE * float(transform.scale)
+	position = transform.position
 	queue_redraw()
+
+static func calculate_world_transform(viewport_size: Vector2) -> Dictionary:
+	var cover_scale := maxf(viewport_size.x / BASE_SIZE.x, viewport_size.y / BASE_SIZE.y)
+	return {
+		"scale": cover_scale,
+		"position": (viewport_size - BASE_SIZE * cover_scale) * 0.5
+	}
 
 func _on_state_changed() -> void:
 	refresh_text()
+	refresh_actor_visuals()
 	queue_redraw()
 
 func _draw() -> void:
-	var viewport_size := get_viewport_rect().size
-	var viewport_origin := -position
-	var viewport_end := viewport_origin + viewport_size
-	draw_rect(Rect2(viewport_origin, viewport_size), Color("#101218"))
-	draw_texture_rect(MARKET_BACKGROUND, Rect2(0, 0, 640, 360), false)
-	draw_background_extensions(viewport_origin, viewport_end)
-	draw_rect(Rect2(viewport_origin, viewport_size), Color("#10141d12"))
+	draw_rect(Rect2(Vector2.ZERO, BASE_SIZE), Color("#101218"))
+	draw_texture_rect(MARKET_BACKGROUND, Rect2(Vector2.ZERO, BASE_SIZE), false)
+	draw_rect(Rect2(Vector2.ZERO, BASE_SIZE), Color("#10141d12"))
 
 	if GameSession.encounter.outcome_id == &"accepted_shortcut":
 		draw_soft_glow(Vector2(506, 91), Color("#f0b75b"), 42.0)
 	elif GameSession.encounter.outcome_id == &"discerned_and_warned":
 		draw_soft_glow(Vector2(206, 86), Color("#d8c48a"), 32.0)
-
-	var sign_column := 1 if GameSession.has_flag(&"flag.truthful_sign_installed") else 0
-	draw_prop(Rect2(215, 91, 58, 58), sign_column, 0)
-
-	draw_npc(interactables[&"neria"], 0)
-	draw_npc(interactables[&"mara"], 1)
-	draw_npc(interactables[&"apate"], 2)
-
-	if GameSession.encounter.outcome_id == &"discerned_and_warned":
-		draw_traveler(Vector2(250, 145), 3)
-		draw_traveler(Vector2(270, 145), 4)
-	elif GameSession.encounter.outcome_id == &"accepted_shortcut":
-		draw_traveler(Vector2(545, 184), 4)
-		draw_traveler(Vector2(565, 174), 5)
-	elif GameSession.encounter.outcome_id == &"exposed_publicly":
-		var crowd := [Vector2(420, 205), Vector2(445, 220), Vector2(530, 215), Vector2(555, 198)]
-		for index in crowd.size():
-			draw_traveler(crowd[index], 3 + index % 3)
-
-func draw_background_extensions(viewport_origin: Vector2, viewport_end: Vector2) -> void:
-	var source_size := MARKET_BACKGROUND.get_size()
-	if viewport_origin.x < 0.0:
-		draw_texture_rect_region(
-			MARKET_BACKGROUND,
-			Rect2(viewport_origin.x, 0, -viewport_origin.x, 360),
-			Rect2(0, 0, source_size.x * 0.08, source_size.y)
-		)
-	if viewport_end.x > 640.0:
-		draw_texture_rect_region(
-			MARKET_BACKGROUND,
-			Rect2(640, 0, viewport_end.x - 640.0, 360),
-			Rect2(source_size.x * 0.92, 0, source_size.x * 0.08, source_size.y)
-		)
-	if viewport_origin.y < 0.0:
-		draw_texture_rect_region(
-			MARKET_BACKGROUND,
-			Rect2(0, viewport_origin.y, 640, -viewport_origin.y),
-			Rect2(0, 0, source_size.x, source_size.y * 0.1)
-		)
-	if viewport_end.y > 360.0:
-		draw_texture_rect_region(
-			MARKET_BACKGROUND,
-			Rect2(0, 360, 640, viewport_end.y - 360.0),
-			Rect2(0, source_size.y * 0.88, source_size.x, source_size.y * 0.12)
-		)
 
 func draw_soft_glow(center: Vector2, color: Color, radius: float) -> void:
 	for step in range(5, 0, -1):
@@ -514,23 +627,3 @@ func draw_soft_glow(center: Vector2, color: Color, radius: float) -> void:
 		var glow := color
 		glow.a = 0.018 + (1.0 - weight) * 0.012
 		draw_circle(center, radius * weight, glow)
-
-func draw_npc(at: Vector2, row: int) -> void:
-	draw_character_shadow(at)
-	var source := Rect2(0.0, NPC_FRAME.y * row, NPC_FRAME.x, NPC_FRAME.y)
-	draw_texture_rect_region(NPC_SHEET, Rect2(at.x - 25, at.y - 56, 50, 68), source)
-
-func draw_prop(destination: Rect2, column: int, row: int) -> void:
-	var source := Rect2(PROP_FRAME.x * column, PROP_FRAME.y * row, PROP_FRAME.x, PROP_FRAME.y)
-	draw_texture_rect_region(PROP_SHEET, destination, source)
-
-func draw_traveler(at: Vector2, column: int) -> void:
-	draw_character_shadow(at)
-	draw_prop(Rect2(at.x - 22, at.y - 42, 44, 44), column, 3)
-
-func draw_character_shadow(at: Vector2) -> void:
-	var points := PackedVector2Array()
-	for index in range(18):
-		var angle := TAU * float(index) / 18.0
-		points.append(at + Vector2(cos(angle) * 12.0, sin(angle) * 4.0) + Vector2(0, 8))
-	draw_colored_polygon(points, Color("#0303068c"))

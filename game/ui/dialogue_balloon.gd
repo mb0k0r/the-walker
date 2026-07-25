@@ -7,6 +7,8 @@ extends DialogueManagerExampleBalloon
 
 func _ready() -> void:
 	super._ready()
+	add_to_group(&"dialogue_balloon")
+	dialogue_label.add_theme_color_override("font_unrevealed_color", Color.TRANSPARENT)
 	Locale.locale_changed.connect(func(_locale): refresh_keyboard_hint())
 	refresh_keyboard_hint()
 

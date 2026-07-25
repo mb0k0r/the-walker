@@ -48,6 +48,13 @@ jobs:
         run: |
           "./${GODOT_EXE}" --headless --path . --import --quit
 
+      - name: Run automated tests
+        run: |
+          "./${GODOT_EXE}" --headless --path . \
+            -s addons/gut/gut_cmdln.gd \
+            -gdir=res://tests \
+            -gexit
+
       - name: Export Web game
         run: |
           mkdir -p build/web

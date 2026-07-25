@@ -33,6 +33,7 @@ func test_movement_uses_the_expected_direction_rows_and_returns_to_idle() -> voi
 		&"move_up": 3
 	}
 	for action in directions:
+		wayfarer.position = Vector2(320, 220)
 		Input.action_press(action)
 		wayfarer.input_enabled = true
 		wayfarer._process(0.17)
@@ -43,6 +44,16 @@ func test_movement_uses_the_expected_direction_rows_and_returns_to_idle() -> voi
 		wayfarer._process(0.01)
 		wayfarer.input_enabled = false
 		assert_eq(wayfarer.sprite.frame_coords, Vector2i(0, directions[action]), "%s must return to its directional idle frame" % action)
+
+func test_obstacles_block_the_feet_without_blocking_movement_away() -> void:
+	var wayfarer := Wayfarer.new()
+	wayfarer.position = Vector2(100, 100)
+	wayfarer.set_collision_rects([Rect2(112, 90, 20, 20)])
+	assert_eq(wayfarer.move_with_collisions(Vector2(20, 0)), Vector2.ZERO)
+	assert_eq(wayfarer.position, Vector2(100, 100))
+	assert_eq(wayfarer.move_with_collisions(Vector2(-10, 0)), Vector2(-10, 0))
+	assert_eq(wayfarer.position, Vector2(90, 100))
+	wayfarer.free()
 
 func alpha_bounds(image: Image, cell: Rect2i) -> Rect2i:
 	var minimum := cell.end

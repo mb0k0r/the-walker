@@ -2,13 +2,14 @@ extends Node
 
 const SCHEMA_VERSION := 1
 const APATE_CODEX := &"codex.apate"
+const DEFAULT_PLAYER_POSITION := Vector2(320, 292)
 
 signal state_changed
 signal clue_added(clue_id: StringName)
 signal encounter_completed(outcome_id: StringName)
 
 var encounter := EncounterState.new()
-var player_position := Vector2(128, 250)
+var player_position := DEFAULT_PLAYER_POSITION
 var flags: Dictionary = {}
 var stats: Dictionary = {}
 var journal_entries: Array[StringName] = []
@@ -19,7 +20,7 @@ func _ready() -> void:
 
 func reset() -> void:
 	encounter = EncounterState.new()
-	player_position = Vector2(128, 250)
+	player_position = DEFAULT_PLAYER_POSITION
 	flags = {}
 	stats = {
 		&"discernment": 0,
@@ -87,7 +88,7 @@ func load_dict(data: Dictionary) -> bool:
 	if migrated.is_empty():
 		return false
 	var position_data = migrated.get("player_position", {}) as Dictionary
-	player_position = Vector2(position_data.get("x", 128.0), position_data.get("y", 250.0))
+	player_position = Vector2(position_data.get("x", DEFAULT_PLAYER_POSITION.x), position_data.get("y", DEFAULT_PLAYER_POSITION.y))
 	flags = _name_keys(migrated.get("flags", {}))
 	stats = _name_keys(migrated.get("stats", {}))
 	journal_entries.assign((migrated.get("journal_entries", []) as Array).map(func(value): return StringName(value)))
@@ -115,4 +116,3 @@ func _name_keys(source: Dictionary) -> Dictionary:
 	for key in source:
 		result[StringName(key)] = source[key]
 	return result
-

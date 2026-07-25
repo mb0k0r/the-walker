@@ -18,11 +18,12 @@ func show_menu() -> void:
 func start_new_game() -> void:
 	SaveManager.delete_save()
 	GameSession.reset()
-	show_market(true, false)
+	SaveManager.save_game()
+	show_market(true, false, false)
 
 func continue_game() -> void:
 	if SaveManager.load_game():
-		show_market(false, false)
+		show_market(false, false, false)
 	else:
 		show_menu()
 
@@ -32,16 +33,16 @@ func start_lab() -> void:
 	GameSession.add_clue(&"clue.apate_hidden_toll")
 	GameSession.add_clue(&"clue.apate_tunnel_reaches_gate")
 	GameSession.set_flag(&"flag.apate_sign_inspected")
-	show_market(false, true)
+	show_market(false, true, true)
 
-func show_market(show_intro: bool, start_encounter: bool) -> void:
+func show_market(show_intro: bool, start_encounter: bool, development_lab: bool) -> void:
 	clear_screen()
 	var market := ThresholdMarket.new()
 	market.menu_requested.connect(show_menu)
-	market.reset_requested.connect(start_new_game)
+	market.reset_requested.connect(start_lab if development_lab else start_new_game)
 	add_child(market)
 	active_screen = market
-	market.call_deferred("begin", show_intro, start_encounter)
+	market.call_deferred("begin", show_intro, start_encounter, development_lab)
 
 func clear_screen() -> void:
 	if is_instance_valid(active_screen):
